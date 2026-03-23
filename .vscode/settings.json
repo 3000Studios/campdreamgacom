@@ -1,0 +1,21 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.quickSuggestions": {
+    "comments": "on",
+    "other": "on",
+    "strings": "on"
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "files.eol": "\n",
+  "search.exclude": {
+    "build": true,
+    "coverage": true,
+    "dist": true,
+    "node_modules": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

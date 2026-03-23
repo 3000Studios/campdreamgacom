@@ -1,0 +1,9 @@
+name = "campdreamga"
+compatibility_date = "2026-03-22"
+pages_build_output_dir = "./dist"
+
+[env.preview]
+name = "campdreamga-preview"
+
+[env.production]
+name = "campdreamga-production"

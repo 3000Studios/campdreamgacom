@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      ADMIN_EMAIL: operator@campdreamga.com
+      ADMIN_PASSCODE: example-passcode
+      ADSENSE_CLIENT_ID: ca-pub-0000000000000000
+      API_BASE_URL: https://api.example.com
+      CLARITY_PROJECT_ID: clarity-placeholder
+      CONTACT_EMAIL: hello@campdreamga.com
+      ENABLE_ADS: "false"
+      GA4_MEASUREMENT_ID: G-EXAMPLE1234
+      GTM_CONTAINER_ID: GTM-EXAMPLE
+      META_PIXEL_ID: "123456789012345"
+      PAYPAL_PAYMENT_LINK: https://www.paypal.com/paypalme/example
+      SEARCH_CONSOLE_VERIFICATION: verification-placeholder
+      SESSION_SECRET: not-a-real-secret-but-long-enough-for-ci
+      SITE_DOMAIN: campdreamga.com
+      SITE_URL: https://campdreamga.com
+      STRIPE_PAYMENT_LINK: https://buy.stripe.com/test_example
+      WWW_SITE_URL: https://www.campdreamga.com
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run test
+      - run: npm run validate:env
+      - run: npm run build
+
+      - name: Verify generated assets
+        run: |
+          test -f public/ads.txt
+          test -f public/robots.txt
+          test -f public/sitemap.xml

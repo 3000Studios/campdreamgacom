@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://campdreamga.com/sitemap.xml
