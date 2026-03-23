@@ -17,25 +17,50 @@
    - `BOOKING_URL`
    - `HERO_VIDEO_URL`
 
-2. Build command:
+2. If you are deploying from GitHub Actions instead of Cloudflare's native repo build, add these GitHub repository secrets:
+   - `CLOUDFLARE_MASTER_TOKEN`
+   - `CLOUDFLARE_ACCOUNT_ID`
+   - `ADSENSE_CLIENT_ID`
+   - `GA4_MEASUREMENT_ID`
+   - `GTM_CONTAINER_ID`
+   - `META_PIXEL_ID`
+   - `CLARITY_PROJECT_ID`
+   - `SEARCH_CONSOLE_VERIFICATION`
+
+3. Add these GitHub repository variables for the Pages workflow:
+   - `API_BASE_URL`
+   - `SITE_DOMAIN` if you need something other than `campdreamga.com`
+   - `SITE_URL` if you need something other than `https://campdreamga.com`
+   - `WWW_SITE_URL` if you need something other than `https://www.campdreamga.com`
+   - `CONTACT_EMAIL` if you need something other than `hello@campdreamga.com`
+   - `ENABLE_ADS`
+   - `ADMIN_ROUTE_SLUG`
+   - `BOOKING_URL`
+   - `STRIPE_PAYMENT_LINK`
+   - `PAYPAL_PAYMENT_LINK`
+   - `HERO_VIDEO_URL`
+
+4. Build command:
 
 ```bash
 npm run build
 ```
 
-3. Output directory:
+5. Output directory:
 
 ```text
 dist
 ```
 
-4. Confirm the generated assets exist before publish:
+6. Confirm the generated assets exist before publish:
 
 ```bash
 public/ads.txt
 public/robots.txt
 public/sitemap.xml
 ```
+
+7. The GitHub Actions workflow in [deploy-pages.yml](/c:/Workspaces/campdreamgacom/.github/workflows/deploy-pages.yml) deploys with `CLOUDFLARE_MASTER_TOKEN` mapped to Wrangler's `CLOUDFLARE_API_TOKEN`. `CLOUDFLARE_ZONE_ID` is not required for this Pages upload flow.
 
 ## Protected API
 

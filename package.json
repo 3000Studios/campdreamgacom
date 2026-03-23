@@ -23,6 +23,7 @@
     "test:watch": "vitest",
     "analyze": "cross-env ANALYZE=true vite build",
     "generate:static": "tsx scripts/generate-static.ts",
+    "validate:pages-env": "tsx scripts/validate-pages-env.ts",
     "validate:env": "tsx scripts/validate-env.ts",
     "depcheck": "depcheck",
     "deps:check": "npx npm-check-updates",

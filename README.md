@@ -97,6 +97,8 @@ The project uses placeholders only. Never commit real values.
 ## Deployment Notes
 
 - Cloudflare Pages should deploy the `dist` directory produced by `npm run build`
+- GitHub Actions deployment uses `CLOUDFLARE_MASTER_TOKEN` as the Cloudflare API token and `CLOUDFLARE_ACCOUNT_ID` for authentication
+- Set `API_BASE_URL` as a GitHub repository variable before enabling the Pages workflow so the public site points at the real protected API origin
 - The public host should use `campdreamga.com` as canonical and redirect `www.campdreamga.com` at the DNS or Cloudflare dashboard level
 - The Express API should run with the same env contract on a protected origin and be surfaced to the frontend through `API_BASE_URL`
 - `public/_redirects` is included for SPA routing

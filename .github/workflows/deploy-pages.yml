@@ -1,0 +1,100 @@
+name: Deploy Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-pages-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build public Pages env
+        shell: bash
+        env:
+          ADMIN_ROUTE_SLUG: ${{ vars.ADMIN_ROUTE_SLUG }}
+          ADSENSE_CLIENT_ID: ${{ secrets.ADSENSE_CLIENT_ID }}
+          API_BASE_URL: ${{ vars.API_BASE_URL }}
+          BOOKING_URL: ${{ vars.BOOKING_URL }}
+          CLARITY_PROJECT_ID: ${{ secrets.CLARITY_PROJECT_ID }}
+          CONTACT_EMAIL: ${{ vars.CONTACT_EMAIL }}
+          ENABLE_ADS: ${{ vars.ENABLE_ADS }}
+          GA4_MEASUREMENT_ID: ${{ secrets.GA4_MEASUREMENT_ID }}
+          GTM_CONTAINER_ID: ${{ secrets.GTM_CONTAINER_ID }}
+          HERO_VIDEO_URL: ${{ vars.HERO_VIDEO_URL }}
+          META_PIXEL_ID: ${{ secrets.META_PIXEL_ID }}
+          PAYPAL_PAYMENT_LINK: ${{ vars.PAYPAL_PAYMENT_LINK }}
+          SEARCH_CONSOLE_VERIFICATION: ${{ secrets.SEARCH_CONSOLE_VERIFICATION }}
+          SITE_DOMAIN: ${{ vars.SITE_DOMAIN }}
+          SITE_URL: ${{ vars.SITE_URL }}
+          STRIPE_PAYMENT_LINK: ${{ vars.STRIPE_PAYMENT_LINK }}
+          WWW_SITE_URL: ${{ vars.WWW_SITE_URL }}
+        run: |
+          set -euo pipefail
+
+          write_if_present() {
+            local key="$1"
+            local value="$2"
+            if [ -n "$value" ]; then
+              printf '%s=%s\n' "$key" "$value" >> .env.production
+            fi
+          }
+
+          : > .env.production
+
+          printf 'SITE_DOMAIN=%s\n' "${SITE_DOMAIN:-campdreamga.com}" >> .env.production
+          printf 'SITE_URL=%s\n' "${SITE_URL:-https://campdreamga.com}" >> .env.production
+          printf 'WWW_SITE_URL=%s\n' "${WWW_SITE_URL:-https://www.campdreamga.com}" >> .env.production
+          printf 'CONTACT_EMAIL=%s\n' "${CONTACT_EMAIL:-hello@campdreamga.com}" >> .env.production
+          printf 'ENABLE_ADS=%s\n' "${ENABLE_ADS:-false}" >> .env.production
+
+          if [ -z "${API_BASE_URL:-}" ]; then
+            echo "API_BASE_URL GitHub repository variable is required for Pages deploys."
+            exit 1
+          fi
+          printf 'API_BASE_URL=%s\n' "$API_BASE_URL" >> .env.production
+
+          write_if_present ADMIN_ROUTE_SLUG "${ADMIN_ROUTE_SLUG:-}"
+          write_if_present ADSENSE_CLIENT_ID "${ADSENSE_CLIENT_ID:-}"
+          write_if_present BOOKING_URL "${BOOKING_URL:-}"
+          write_if_present CLARITY_PROJECT_ID "${CLARITY_PROJECT_ID:-}"
+          write_if_present GA4_MEASUREMENT_ID "${GA4_MEASUREMENT_ID:-}"
+          write_if_present GTM_CONTAINER_ID "${GTM_CONTAINER_ID:-}"
+          write_if_present HERO_VIDEO_URL "${HERO_VIDEO_URL:-}"
+          write_if_present META_PIXEL_ID "${META_PIXEL_ID:-}"
+          write_if_present PAYPAL_PAYMENT_LINK "${PAYPAL_PAYMENT_LINK:-}"
+          write_if_present SEARCH_CONSOLE_VERIFICATION "${SEARCH_CONSOLE_VERIFICATION:-}"
+          write_if_present STRIPE_PAYMENT_LINK "${STRIPE_PAYMENT_LINK:-}"
+
+      - name: Validate and build public site
+        shell: bash
+        run: |
+          set -euo pipefail
+          set -a
+          . ./.env.production
+          set +a
+          npm run validate:pages-env
+          npm run generate:static
+          npm run build:web
+
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_MASTER_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler@4 pages deploy dist --project-name=campdreamga --branch=main

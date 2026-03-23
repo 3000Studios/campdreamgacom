@@ -13,3 +13,4 @@ Thumbs.db
 .wrangler
 *.tsbuildinfo
 build-report.html
+.codex-dev.log
