@@ -1,0 +1,26 @@
+name: Gemini Auto-Update & Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allows me to trigger this manually for you
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: campdreamga # Change this to your project name
+          directory: . # The folder where your index.html lives
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
