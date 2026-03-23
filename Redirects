@@ -1,0 +1,5 @@
+# Force Canonical Domain
+https://www.campdreamga.com/* https://campdreamga.com/:splat 301!
+
+# Basic SPA Routing (if you're using React/Vue/Vite)
+/* /index.html 200
