@@ -17,8 +17,9 @@ export const AboutPage = (): JSX.Element => (
       title="What We Do"
     />
 
-    <section className="section">
-      <div className="container prose-shell">
+    <section className="page-hero">
+      <div className="page-hero-overlay" />
+      <div className="container">
         <Breadcrumbs
           items={[
             { href: '/', label: 'Home' },
@@ -40,7 +41,7 @@ export const AboutPage = (): JSX.Element => (
 
     <section className="section">
       <div className="container split-layout">
-        <div>
+        <div className="animate-on-scroll slide-in-left">
           <h2>Our mission</h2>
           <p>
             Camp Dream provides an experience not found elsewhere that enriches the lives of
@@ -52,7 +53,7 @@ export const AboutPage = (): JSX.Element => (
             safe space where campers can have fun, build confidence, and feel empowered.
           </p>
         </div>
-        <div className="panel">
+        <div className="panel animate-on-scroll slide-in-right">
           <p className="eyebrow">What sets us apart</p>
           <ul className="check-list">
             <li>100% volunteer-driven programs and leadership</li>
@@ -66,7 +67,7 @@ export const AboutPage = (): JSX.Element => (
 
     <section className="section">
       <div className="container">
-        <div className="section-heading">
+        <div className="section-heading animate-on-scroll">
           <p className="eyebrow">Our ethos</p>
           <h2>Camp Dream imparts self-worth, joy, and belonging.</h2>
           <p>
@@ -76,15 +77,15 @@ export const AboutPage = (): JSX.Element => (
           </p>
         </div>
         <div className="card-grid">
-          <article className="panel">
+          <article className="panel animate-on-scroll">
             <h3>For campers</h3>
             <p>Recreational and social opportunities that are often unavailable elsewhere.</p>
           </article>
-          <article className="panel">
+          <article className="panel animate-on-scroll">
             <h3>For families</h3>
             <p>A caring community that supports participation regardless of financial ability.</p>
           </article>
-          <article className="panel">
+          <article className="panel animate-on-scroll">
             <h3>For volunteers</h3>
             <p>Meaningful service opportunities that create life-changing impact.</p>
           </article>

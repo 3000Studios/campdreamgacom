@@ -14,8 +14,9 @@ export const ResourcesPage = (): JSX.Element => (
       title="Resources"
     />
 
-    <section className="section">
-      <div className="container prose-shell">
+    <section className="page-hero">
+      <div className="page-hero-overlay" />
+      <div className="container">
         <Breadcrumbs
           items={[
             { href: '/', label: 'Home' },
@@ -33,7 +34,7 @@ export const ResourcesPage = (): JSX.Element => (
 
     <section className="section">
       <div className="container card-grid">
-        <article className="panel resource-card">
+        <article className="panel resource-card animate-on-scroll">
           <span className="badge">Summer Camp FAQ</span>
           <h2>Get answers before applying</h2>
           <p>
@@ -49,7 +50,7 @@ export const ResourcesPage = (): JSX.Element => (
             View Summer Camp FAQs
           </a>
         </article>
-        <article className="panel resource-card">
+        <article className="panel resource-card animate-on-scroll">
           <span className="badge">Location</span>
           <h2>Calvin Center, Hampton GA</h2>
           <p>
@@ -65,7 +66,7 @@ export const ResourcesPage = (): JSX.Element => (
             View location details
           </a>
         </article>
-        <article className="panel resource-card">
+        <article className="panel resource-card animate-on-scroll">
           <span className="badge">Events</span>
           <h2>Community events and fundraisers</h2>
           <p>

@@ -4,6 +4,7 @@ import { OperatorLayout } from '@/components/OperatorLayout';
 import { PublicLayout } from '@/components/PublicLayout';
 import { runtimeConfig } from '@/lib/runtime';
 import { AboutPage } from '@/pages/AboutPage';
+import { BlogPage } from '@/pages/BlogPage';
 import { BookingStatusPage } from '@/pages/BookingStatusPage';
 import { BookPage } from '@/pages/BookPage';
 import { ContactPage } from '@/pages/ContactPage';
@@ -31,6 +32,7 @@ const App = (): JSX.Element => {
         <Route path="/book" element={<BookPage />} />
         <Route path="/resources" element={<ResourcesPage />} />
         <Route path="/resources/:slug" element={<ResourceArticlePage />} />
+        <Route path="/blog" element={<BlogPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/thanks" element={<ThanksPage />} />
         <Route path="/booking/:status" element={<BookingStatusPage />} />

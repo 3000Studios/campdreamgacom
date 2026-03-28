@@ -15,6 +15,7 @@ export const primaryNavigation: NavItem[] = [
   { href: '/pricing', label: 'Summer Camp' },
   { href: '/resources', label: 'Resources' },
   { href: '/book', label: 'Donate' },
+  { href: '/blog', label: 'Blog' },
   { href: '/contact', label: 'Contact' },
 ];
 

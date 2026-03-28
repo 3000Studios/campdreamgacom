@@ -42,7 +42,7 @@ export const HomePage = (): JSX.Element => {
 
       <section className="hero-section">
         <div className="container hero-grid">
-          <div>
+          <div className="animate-on-scroll slide-in-left">
             <p className="eyebrow">Camp Dream Foundation</p>
             <h1 className="display-title">
               Camp Dream believes every child and young adult with disabilities deserves camp.
@@ -78,7 +78,7 @@ export const HomePage = (): JSX.Element => {
             </div>
           </div>
 
-          <div className="hero-visual panel">
+          <div className="hero-visual panel animate-on-scroll slide-in-right">
             {runtimeConfig.heroVideoUrl ? (
               <video
                 autoPlay
@@ -112,7 +112,7 @@ export const HomePage = (): JSX.Element => {
         </div>
       </section>
 
-      <section className="section section-tight">
+      <section className="section section-tight animate-on-scroll">
         <div className="container trust-strip">
           <span>Summer Camp and Camp Out programs.</span>
           <span>100% volunteer-led with one-to-one counselor support.</span>
@@ -122,7 +122,7 @@ export const HomePage = (): JSX.Element => {
 
       <section className="section">
         <div className="container">
-          <div className="section-heading">
+          <div className="section-heading animate-on-scroll">
             <p className="eyebrow">Featured programs</p>
             <h2>Three ways to get involved with Camp Dream</h2>
             <p>
@@ -132,7 +132,7 @@ export const HomePage = (): JSX.Element => {
           </div>
           <div className="card-grid">
             {programs.map((program) => (
-              <article className="panel program-card" key={program.slug}>
+              <article className="panel program-card animate-on-scroll" key={program.slug}>
                 <span className="badge">{program.priceLabel}</span>
                 <h3>{program.title}</h3>
                 <p>{program.summary}</p>
@@ -152,7 +152,7 @@ export const HomePage = (): JSX.Element => {
 
       <section className="section">
         <div className="container split-layout">
-          <div>
+          <div className="animate-on-scroll slide-in-left">
             <p className="eyebrow">Why families and founders choose us</p>
             <h2>Camp Dream creates joy, dignity, and belonging.</h2>
             <p>
@@ -165,12 +165,12 @@ export const HomePage = (): JSX.Element => {
               <li>Barrier-free camp opportunities funded by community generosity</li>
             </ul>
           </div>
-          <div className="panel layered-panel">
+          <div className="panel layered-panel animate-on-scroll slide-in-right">
             <p className="eyebrow">Camp Dream voices</p>
             <div className="testimonial-stack">
               {testimonials.slice(0, 2).map((testimonial) => (
                 <blockquote key={testimonial.name}>
-                  <p>“{testimonial.quote}”</p>
+                  <p>&ldquo;{testimonial.quote}&rdquo;</p>
                   <footer>
                     {testimonial.name}, {testimonial.role}
                   </footer>
@@ -183,7 +183,7 @@ export const HomePage = (): JSX.Element => {
 
       <section className="section">
         <div className="container">
-          <div className="section-heading">
+          <div className="section-heading animate-on-scroll">
             <p className="eyebrow">Resource funnel</p>
             <h2>Helpful resources for families, volunteers, and donors</h2>
             <p>
@@ -193,7 +193,7 @@ export const HomePage = (): JSX.Element => {
           </div>
           <div className="card-grid">
             {featuredResources.map((article) => (
-              <article className="panel resource-card" key={article.slug}>
+              <article className="panel resource-card animate-on-scroll" key={article.slug}>
                 <span className="badge">{article.category}</span>
                 <h3>{article.title}</h3>
                 <p>{article.description}</p>
@@ -207,7 +207,7 @@ export const HomePage = (): JSX.Element => {
       </section>
 
       <section className="section">
-        <div className="container pricing-callout">
+        <div className="container pricing-callout animate-on-scroll">
           <div>
             <p className="eyebrow">Summer Camp 2026</p>
             <h2>Camper registration and volunteer applications are open</h2>
@@ -218,7 +218,7 @@ export const HomePage = (): JSX.Element => {
           </div>
           <div className="pricing-mini-grid">
             {pricingPlans.map((plan) => (
-              <div className="panel pricing-mini-card" key={plan.id}>
+              <div className="panel pricing-mini-card animate-on-scroll" key={plan.id}>
                 <span className="badge">{plan.tag}</span>
                 <h3>{plan.name}</h3>
                 <strong>{plan.price}</strong>
@@ -229,7 +229,7 @@ export const HomePage = (): JSX.Element => {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section animate-on-scroll">
         <div className="container">
           <div className="section-heading">
             <p className="eyebrow">FAQ</p>

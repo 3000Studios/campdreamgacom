@@ -19,8 +19,9 @@ export const PricingPage = (): JSX.Element => (
       title="Summer Camp"
     />
 
-    <section className="section">
-      <div className="container prose-shell">
+    <section className="page-hero">
+      <div className="page-hero-overlay" />
+      <div className="container">
         <Breadcrumbs
           items={[
             { href: '/', label: 'Home' },
@@ -39,7 +40,7 @@ export const PricingPage = (): JSX.Element => (
     <section className="section">
       <div className="container pricing-grid">
         {pricingPlans.map((plan) => (
-          <article className="panel pricing-card" key={plan.id}>
+          <article className="panel pricing-card animate-on-scroll" key={plan.id}>
             <span className="badge">{plan.tag}</span>
             <h2>{plan.name}</h2>
             <strong className="pricing-amount">{plan.price}</strong>
@@ -60,7 +61,7 @@ export const PricingPage = (): JSX.Element => (
       </div>
     </section>
 
-    <section className="section">
+    <section className="section animate-on-scroll">
       <div className="container">
         <div className="section-heading">
           <p className="eyebrow">Comparison table</p>
@@ -93,7 +94,7 @@ export const PricingPage = (): JSX.Element => (
 
     <section className="section">
       <div className="container split-layout">
-        <div>
+        <div className="animate-on-scroll slide-in-left">
           <p className="eyebrow">Camp details</p>
           <h2>What families ask before applying</h2>
           <p>
@@ -101,7 +102,7 @@ export const PricingPage = (): JSX.Element => (
             times daily with dietary accommodations communicated in the application process.
           </p>
         </div>
-        <div className="panel">
+        <div className="panel animate-on-scroll slide-in-right">
           <FaqAccordion items={homepageFaqs.slice(0, 2)} />
         </div>
       </div>

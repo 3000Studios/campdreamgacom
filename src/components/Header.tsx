@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 import { primaryNavigation } from '@/content/siteContent';
 import { trackEvent } from '@/lib/analytics';
+import { playClickSound } from '@/lib/sounds';
 
 export const Header = (): JSX.Element => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,6 +31,11 @@ export const Header = (): JSX.Element => {
     };
   }, [menuOpen]);
 
+  const handleNavClick = (href: string, label: string, mode?: string): void => {
+    playClickSound();
+    trackEvent('nav_click', { href, label, ...(mode ? { mode } : {}) });
+  };
+
   return (
     <header className={`site-header ${scrolled ? 'site-header-scrolled' : ''}`}>
       <div className="container nav-shell">
@@ -43,7 +49,7 @@ export const Header = (): JSX.Element => {
             <NavLink
               key={item.href}
               className={({ isActive }) => (isActive ? 'nav-link nav-link-active' : 'nav-link')}
-              onClick={() => trackEvent('nav_click', { href: item.href, label: item.label })}
+              onClick={() => handleNavClick(item.href, item.label)}
               to={item.href}
             >
               {item.label}
@@ -54,7 +60,10 @@ export const Header = (): JSX.Element => {
         <div className="nav-actions">
           <Link
             className="button button-ghost desktop-book-cta"
-            onClick={() => trackEvent('cta_click', { placement: 'header', target: '/book' })}
+            onClick={() => {
+              playClickSound();
+              trackEvent('cta_click', { placement: 'header', target: '/book' });
+            }}
             to="/book"
           >
             Donate
@@ -82,7 +91,7 @@ export const Header = (): JSX.Element => {
                 className="mobile-nav-link"
                 onClick={() => {
                   setMenuOpen(false);
-                  trackEvent('nav_click', { href: item.href, label: item.label, mode: 'mobile' });
+                  handleNavClick(item.href, item.label, 'mobile');
                 }}
                 to={item.href}
               >
@@ -94,6 +103,7 @@ export const Header = (): JSX.Element => {
             className="button"
             onClick={() => {
               setMenuOpen(false);
+              playClickSound();
               trackEvent('cta_click', { placement: 'mobile_nav', target: '/book' });
             }}
             to="/book"

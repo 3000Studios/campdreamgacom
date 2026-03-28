@@ -10,6 +10,7 @@ const staticRoutes: RouteEntry[] = [
   { changeFrequency: 'weekly', path: '/book', priority: 0.8 },
   { changeFrequency: 'weekly', path: '/contact', priority: 0.8 },
   { changeFrequency: 'weekly', path: '/resources', priority: 0.9 },
+  { changeFrequency: 'weekly', path: '/blog', priority: 0.7 },
   { changeFrequency: 'monthly', path: '/thanks', priority: 0.4, noIndex: true },
   { changeFrequency: 'monthly', path: '/booking/success', priority: 0.3, noIndex: true },
   { changeFrequency: 'monthly', path: '/booking/cancel', priority: 0.3, noIndex: true },

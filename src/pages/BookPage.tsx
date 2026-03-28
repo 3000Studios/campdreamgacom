@@ -14,8 +14,9 @@ export const BookPage = (): JSX.Element => (
       title="Donate"
     />
 
-    <section className="section">
-      <div className="container prose-shell">
+    <section className="page-hero">
+      <div className="page-hero-overlay" />
+      <div className="container">
         <Breadcrumbs
           items={[
             { href: '/', label: 'Home' },
@@ -34,7 +35,7 @@ export const BookPage = (): JSX.Element => (
 
     <section className="section">
       <div className="container pricing-grid">
-        <article className="panel pricing-card">
+        <article className="panel pricing-card animate-on-scroll">
           <span className="badge">Primary</span>
           <h2>Online Donation</h2>
           <p>Donate securely to Camp Dream Foundation.</p>
@@ -47,7 +48,7 @@ export const BookPage = (): JSX.Element => (
             Donate
           </a>
         </article>
-        <article className="panel pricing-card">
+        <article className="panel pricing-card animate-on-scroll">
           <span className="badge">Monthly impact</span>
           <h2>Round-Up Program</h2>
           <p>Round up your change to support Camp Dream programs year-round.</p>
@@ -60,7 +61,7 @@ export const BookPage = (): JSX.Element => (
             Join Round-Up
           </a>
         </article>
-        <article className="panel pricing-card">
+        <article className="panel pricing-card animate-on-scroll">
           <span className="badge">Volunteer support</span>
           <h2>Supplies Needed</h2>
           <p>Support Summer Camp and Camp Out by donating supplies from our list.</p>

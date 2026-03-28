@@ -6,7 +6,7 @@ interface ChatMessage {
   text: string;
 }
 
-const botResponses: Record<string, string> = {
+const RESPONSES = {
   default:
     'Thank you for reaching out! A Camp Dream team member will get back to you soon. You can also call us at 678-367-0040 or email hello@campdreamga.com.',
   camp: 'Camp Dream Summer Camp is held at the Calvin Center in Hampton, GA. Sessions are in July and registration is open! Visit our Summer Camp page for details.',
@@ -17,30 +17,30 @@ const botResponses: Record<string, string> = {
   cost: 'The program cost is $800, but families are asked to pay what they can. Scholarships are available through donor support.',
   contact:
     'You can reach Camp Dream at 678-367-0040 or email hello@campdreamga.com. Inquiries are accepted year-round.',
-};
+} as const;
 
 const findResponse = (input: string): string => {
   const lower = input.toLowerCase();
   if (lower.includes('camp') || lower.includes('summer') || lower.includes('session'))
-    return botResponses.camp;
-  if (lower.includes('volunteer') || lower.includes('counselor')) return botResponses.volunteer;
+    return RESPONSES.camp;
+  if (lower.includes('volunteer') || lower.includes('counselor')) return RESPONSES.volunteer;
   if (lower.includes('donat') || lower.includes('sponsor') || lower.includes('give'))
-    return botResponses.donate;
+    return RESPONSES.donate;
   if (
     lower.includes('cost') ||
     lower.includes('price') ||
     lower.includes('fee') ||
     lower.includes('pay')
   )
-    return botResponses.cost;
+    return RESPONSES.cost;
   if (
     lower.includes('contact') ||
     lower.includes('phone') ||
     lower.includes('email') ||
     lower.includes('call')
   )
-    return botResponses.contact;
-  return botResponses.default;
+    return RESPONSES.contact;
+  return RESPONSES.default;
 };
 
 export const Chatbot = (): JSX.Element => {

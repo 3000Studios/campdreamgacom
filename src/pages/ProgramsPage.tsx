@@ -22,8 +22,9 @@ export const ProgramsPage = (): JSX.Element => (
       title="Volunteer and Counselors"
     />
 
-    <section className="section">
-      <div className="container prose-shell">
+    <section className="page-hero">
+      <div className="page-hero-overlay" />
+      <div className="container">
         <Breadcrumbs
           items={[
             { href: '/', label: 'Home' },
@@ -42,7 +43,11 @@ export const ProgramsPage = (): JSX.Element => (
     <section className="section">
       <div className="container stack-layout">
         {programs.map((program) => (
-          <article className="panel program-detail" id={program.slug} key={program.slug}>
+          <article
+            className="panel program-detail animate-on-scroll"
+            id={program.slug}
+            key={program.slug}
+          >
             <div>
               <span className="badge">{program.priceLabel}</span>
               <h2>{program.title}</h2>

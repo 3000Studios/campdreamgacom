@@ -16,6 +16,36 @@ export const Footer = (): JSX.Element => (
           Since 1996, Camp Dream has provided traditional Summer Camp experiences for children and
           young adults with moderate to severe disabilities, regardless of financial situation.
         </p>
+        <address className="footer-address">
+          <strong>Camp Dream Foundation</strong>
+          <br />
+          501(c)(3) · EIN 58-1444915
+          <br />
+          Calvin Center, 13550 Woolsey Rd
+          <br />
+          Hampton, GA 30228
+        </address>
+        <div className="footer-social">
+          <a
+            aria-label="Facebook"
+            href="https://www.facebook.com/campdreamga"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            FB
+          </a>
+          <a
+            aria-label="Instagram"
+            href="https://www.instagram.com/campdreamga"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            IG
+          </a>
+          <a aria-label="Email" href={`mailto:${runtimeConfig.contactEmail}`}>
+            @
+          </a>
+        </div>
       </div>
 
       <div>
@@ -26,6 +56,7 @@ export const Footer = (): JSX.Element => (
               {item.label}
             </Link>
           ))}
+          <Link to="/blog">Blog</Link>
         </div>
       </div>
 
@@ -41,10 +72,13 @@ export const Footer = (): JSX.Element => (
       </div>
 
       <div>
-        <p className="footer-list-title">Contact and Policies</p>
+        <p className="footer-list-title">Contact & Info</p>
         <div className="footer-link-list">
           <a href={`mailto:${runtimeConfig.contactEmail}`}>{runtimeConfig.contactEmail}</a>
           <a href="tel:+16783670040">678-367-0040</a>
+          <span style={{ fontSize: '0.88rem', color: 'var(--copy-soft)' }}>
+            Calvin Center, Hampton, GA 30228
+          </span>
           {footerNavigation.map((item) => (
             <Link key={item.href} to={item.href}>
               {item.label}
