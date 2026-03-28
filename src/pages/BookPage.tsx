@@ -1,43 +1,33 @@
-import { Link } from 'react-router-dom';
-
 import { Breadcrumbs } from '@/components/Breadcrumbs';
-import { LeadCaptureForm } from '@/components/LeadCaptureForm';
 import { SeoHead } from '@/components/SeoHead';
-import { runtimeConfig } from '@/lib/runtime';
 import { buildBreadcrumbSchema } from '@/lib/schema';
-
-const renderPaymentLink = (href: string, label: string): JSX.Element =>
-  href ? (
-    <a className="button" href={href} rel="noreferrer" target="_blank">
-      {label}
-    </a>
-  ) : (
-    <Link className="button" to="/contact">
-      {label}
-    </Link>
-  );
 
 export const BookPage = (): JSX.Element => (
   <>
     <SeoHead
-      description="Choose a direct purchase, guided inquiry, or custom planning path for Camp Dream GA offers."
+      description="Donate to Camp Dream Foundation and support camper scholarships and programs."
       path="/book"
       structuredData={buildBreadcrumbSchema([
         { label: 'Home', path: '/' },
         { label: 'Book', path: '/book' },
       ])}
-      title="Book, Enroll, or Request a Scope"
+      title="Donate"
     />
 
     <section className="section">
       <div className="container prose-shell">
-        <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: '/book', label: 'Book' }]} />
-        <p className="eyebrow">Booking and enrollment</p>
-        <h1>Pick the payment or inquiry path that matches your buying intent.</h1>
+        <Breadcrumbs
+          items={[
+            { href: '/', label: 'Home' },
+            { href: '/book', label: 'Book' },
+          ]}
+        />
+        <p className="eyebrow">Donate</p>
+        <h1>The fuel for a lifetime of memories.</h1>
         <p className="lede">
-          This page exists to make the decision simple. There are no ads here, no distractions, and
-          no unclear pricing paths. Direct purchases stay direct, while custom engagements move into
-          a guided scoping flow.
+          Camp Dream depends on donors, sponsors, and partners to provide social and recreational
+          opportunities to campers with disabilities. Your gift helps ensure families can pay what
+          they can and still participate.
         </p>
       </div>
     </section>
@@ -45,39 +35,44 @@ export const BookPage = (): JSX.Element => (
     <section className="section">
       <div className="container pricing-grid">
         <article className="panel pricing-card">
-          <span className="badge">Direct purchase</span>
-          <h2>Dream Weekend</h2>
-          <p>Use Stripe for the fastest reservation path when you already know you are ready.</p>
-          {renderPaymentLink(runtimeConfig.stripePaymentLink, 'Reserve with Stripe')}
+          <span className="badge">Primary</span>
+          <h2>Online Donation</h2>
+          <p>Donate securely to Camp Dream Foundation.</p>
+          <a
+            className="button"
+            href="https://app.formassembly.com/4723988"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Donate
+          </a>
         </article>
         <article className="panel pricing-card">
-          <span className="badge">Alternative payment</span>
-          <h2>Trailblazer Cohort</h2>
-          <p>Use PayPal when that is the easier fit for your family or organization.</p>
-          {renderPaymentLink(runtimeConfig.paypalPaymentLink, 'Pay with PayPal')}
+          <span className="badge">Monthly impact</span>
+          <h2>Round-Up Program</h2>
+          <p>Round up your change to support Camp Dream programs year-round.</p>
+          <a
+            className="button"
+            href="https://donate.caringcent.com/#/go/campdream"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Join Round-Up
+          </a>
         </article>
         <article className="panel pricing-card">
-          <span className="badge">Higher-ticket work</span>
-          <h2>CampCraft Studio</h2>
-          <p>Custom projects start with scope and timing rather than a generic checkout page.</p>
-          <Link className="button" to="/contact">
-            Request a custom scope
-          </Link>
+          <span className="badge">Volunteer support</span>
+          <h2>Supplies Needed</h2>
+          <p>Support Summer Camp and Camp Out by donating supplies from our list.</p>
+          <a
+            className="button"
+            href="https://smile.amazon.com/gp/clpf"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            View Supplies List
+          </a>
         </article>
-      </div>
-    </section>
-
-    <section className="section">
-      <div className="container split-layout">
-        <div>
-          <p className="eyebrow">Need help choosing?</p>
-          <h2>We can still recommend the best-fit path before you buy.</h2>
-          <p>
-            If you are unsure whether you need a family weekend, a youth cohort, or a launch
-            partnership, use the guided form and we will route your request manually.
-          </p>
-        </div>
-        <LeadCaptureForm compact source="book-page" title="Recommend the right path for me" />
       </div>
     </section>
   </>

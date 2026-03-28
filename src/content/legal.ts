@@ -90,32 +90,32 @@ export const legalPages: LegalPage[] = [
   },
   {
     description:
-      'A disclosure explaining how Camp Dream GA uses advertising, recommendations, and monetized content responsibly.',
+      'Important notices about Camp Dream content, program information, and third-party links.',
     sections: [
       {
         body: [
-          'Camp Dream GA is a revenue-generating website. We may earn income from paid programs, custom engagements, affiliate-style recommendations, advertising placements, or future sponsorships where clearly disclosed.',
-          'That does not change our commitment to publishing useful, original content. Resource pages are designed to educate first and monetize second.',
+          'Camp Dream is operated by the Camp Dream Foundation, a registered 501(c)(3) nonprofit organization (EIN 58-1444915).',
+          'Information on this website is provided to help families, volunteers, and donors learn about Camp Dream programs and opportunities.',
         ],
-        title: 'How monetization works',
+        title: 'Organization and informational use',
       },
       {
         body: [
-          'Advertising, where enabled, appears only on approved public content templates. We do not place ads on operator pages, payment pages, or sensitive forms, and we do not style ads to look like navigation or primary calls to action.',
-          'Any sponsored, partner, or materially compensated recommendation will be labeled clearly so readers can evaluate it in context.',
+          'Summer Camp dates, facilities, staffing, and availability can change. Submission of a camper or counselor application does not guarantee placement until confirmation is provided by Camp Dream.',
+          'Camp Dream strives to keep all details current, but families and volunteers should confirm critical information directly with camp leadership.',
         ],
-        title: 'Advertising standards',
+        title: 'Program information and availability',
       },
       {
         body: [
-          'Content on this website is offered for informational and planning purposes. It does not replace professional medical, legal, educational, or financial advice, and readers should make decisions using their own judgment and any qualified experts relevant to their situation.',
-          'If we update an offer or policy, we will do so through the public site and, where appropriate, through direct communication with active clients.',
+          'This website may include links to third-party services (for example application forms and donation providers). Camp Dream is not responsible for the content or practices of external sites.',
+          'Website content is not medical, legal, or financial advice. Families and volunteers should seek qualified professional guidance where appropriate.',
         ],
-        title: 'Reader responsibility and limitations',
+        title: 'Third-party links and responsibility',
       },
     ],
     slug: 'disclaimer',
-    title: 'Advertising Disclosure and Disclaimer',
+    title: 'Site Disclaimer',
   },
 ];
 

@@ -8,27 +8,34 @@ import { buildBreadcrumbSchema } from '@/lib/schema';
 export const ContactPage = (): JSX.Element => (
   <>
     <SeoHead
-      description="Contact Camp Dream GA for family bookings, custom retreat planning, operator support, or partnership questions."
+      description="Contact Camp Dream for Summer Camp, volunteer, event, and donor inquiries."
       path="/contact"
       structuredData={buildBreadcrumbSchema([
         { label: 'Home', path: '/' },
         { label: 'Contact', path: '/contact' },
       ])}
-      title="Contact Camp Dream GA"
+      title="Contact Camp Dream"
     />
 
     <section className="section">
       <div className="container split-layout">
         <div className="prose-shell">
           <Breadcrumbs
-            items={[{ href: '/', label: 'Home' }, { href: '/contact', label: 'Contact' }]}
+            items={[
+              { href: '/', label: 'Home' },
+              { href: '/contact', label: 'Contact' },
+            ]}
           />
           <p className="eyebrow">Contact</p>
-          <h1>Tell us what you are planning and we will route you to the right next step.</h1>
+          <h1>Contact Camp Dream for camp, volunteer, and donor questions.</h1>
           <p className="lede">{contactDetails.supportNote}</p>
           <div className="panel">
             <p>
-              <strong>Email:</strong> <a href={`mailto:${runtimeConfig.contactEmail}`}>{runtimeConfig.contactEmail}</a>
+              <strong>Phone:</strong> <a href="tel:+16783670040">678-367-0040</a>
+            </p>
+            <p>
+              <strong>Email:</strong>{' '}
+              <a href={`mailto:${runtimeConfig.contactEmail}`}>{runtimeConfig.contactEmail}</a>
             </p>
             <p>
               <strong>Availability:</strong> {contactDetails.availability}
@@ -38,7 +45,7 @@ export const ContactPage = (): JSX.Element => (
             </p>
           </div>
         </div>
-        <LeadCaptureForm source="contact-page" title="Start the conversation" />
+        <LeadCaptureForm source="contact-page" title="Send your question" />
       </div>
     </section>
   </>

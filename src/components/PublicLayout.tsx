@@ -4,6 +4,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { ConsentBanner } from '@/components/ConsentBanner';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { TopDisclaimerBar } from '@/components/TopDisclaimerBar';
 import { bootAnalytics, loadAdsense, trackEvent } from '@/lib/analytics';
 import { useConsent } from '@/state/ConsentContext';
 
@@ -33,6 +34,7 @@ export const PublicLayout = (): JSX.Element => {
 
   return (
     <div className="site-shell">
+      <TopDisclaimerBar />
       <Header />
       <main className="page-shell">
         <Outlet />

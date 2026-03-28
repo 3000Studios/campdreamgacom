@@ -34,8 +34,8 @@ export const Header = (): JSX.Element => {
     <header className={`site-header ${scrolled ? 'site-header-scrolled' : ''}`}>
       <div className="container nav-shell">
         <Link className="brand-mark" to="/">
-          <span className="brand-mark-kicker">Georgia Outdoor Brand</span>
-          <span className="brand-mark-title">Camp Dream GA</span>
+          <span className="brand-mark-kicker">Camp Dream Foundation</span>
+          <span className="brand-mark-title">Camp Dream Georgia</span>
         </Link>
 
         <nav aria-label="Primary" className="desktop-nav">
@@ -57,10 +57,10 @@ export const Header = (): JSX.Element => {
             onClick={() => trackEvent('cta_click', { placement: 'header', target: '/book' })}
             to="/book"
           >
-            Book or Enroll
+            Donate
           </Link>
           <button
-            aria-expanded={menuOpen}
+            aria-expanded={menuOpen ? 'true' : 'false'}
             aria-label="Open navigation menu"
             className={`mobile-toggle ${menuOpen ? 'mobile-toggle-open' : ''}`}
             onClick={() => setMenuOpen((current) => !current)}
@@ -98,7 +98,7 @@ export const Header = (): JSX.Element => {
             }}
             to="/book"
           >
-            Start with booking options
+            Donate to Camp Dream
           </Link>
         </div>
       </div>

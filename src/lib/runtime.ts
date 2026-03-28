@@ -8,7 +8,7 @@ const fallbackRuntimeConfig: PublicRuntimeConfig = {
   enableAds: false,
   ga4MeasurementId: '',
   gtmContainerId: '',
-  heroVideoUrl: '',
+  heroVideoUrl: 'https://cdn.coverr.co/videos/coverr-hikers-in-the-woods-1579/1080p.mp4',
   metaPixelId: '',
   paypalPaymentLink: '',
   searchConsoleVerification: '',

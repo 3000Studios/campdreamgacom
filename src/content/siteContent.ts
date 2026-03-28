@@ -10,10 +10,11 @@ import type {
 
 export const primaryNavigation: NavItem[] = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/programs', label: 'Programs' },
-  { href: '/pricing', label: 'Pricing' },
+  { href: '/about', label: 'What We Do' },
+  { href: '/programs', label: 'Volunteer' },
+  { href: '/pricing', label: 'Summer Camp' },
   { href: '/resources', label: 'Resources' },
+  { href: '/book', label: 'Donate' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -21,182 +22,177 @@ export const footerNavigation: NavItem[] = [
   { href: '/policy/privacy', label: 'Privacy Policy' },
   { href: '/policy/terms', label: 'Terms of Service' },
   { href: '/policy/cookies', label: 'Cookie Policy' },
-  { href: '/policy/disclaimer', label: 'Advertising Disclosure' },
+  { href: '/policy/disclaimer', label: 'Site Disclaimer' },
 ];
 
 export const siteStats: SiteStat[] = [
-  { label: 'Families guided through camp planning', value: '120+' },
-  { label: 'Custom retreat itineraries launched', value: '36' },
-  { label: 'Average launch timeline for enrollment-ready pages', value: '14 days' },
+  { label: 'Serving campers since', value: '1996' },
+  { label: 'Volunteer-run programs', value: '100%' },
+  { label: 'Summer camp counselor ratio', value: '1:1' },
 ];
 
 export const programs: Program[] = [
   {
-    audience: 'Families who want a premium outdoor reset without piecing together logistics alone.',
-    duration: 'Three-day experience',
+    audience:
+      'Children and young adults with moderate to severe physical and developmental disabilities.',
+    duration: 'Overnight summer sessions',
     highlights: [
-      'Cabin allocation, meal planning, welcome kit, and curated activity pacing',
-      'Optional photography, keepsake merch, and family leadership circles',
-      'Designed for busy households who want the feel of camp with boutique hospitality',
+      'Barrier-free camp setting at the Calvin Center in Hampton, Georgia',
+      'Dedicated medical staff available in every session',
+      'Activities include swimming, fishing, boating, crafts, dances, and more',
     ],
-    priceLabel: 'From $899 per family',
-    slug: 'dream-weekend',
+    priceLabel: 'Camp Dream Summer Camp',
+    slug: 'summer-camp',
     summary:
-      'A hosted North Georgia family-camp weekend that blends outdoor fun, camp traditions, and polished planning support.',
-    title: 'Dream Weekend',
+      'A traditional overnight camp experience focused on joy, inclusion, life skills, and social connection.',
+    title: 'Summer Camp',
   },
   {
-    audience: 'Campers ages 10-14 who want confidence-building adventure and practical leadership practice.',
-    duration: 'Five-session cohort',
+    audience: 'Adults age 18+ who want to support campers one-on-one in a meaningful way.',
+    duration: 'Single-session volunteer commitment',
     highlights: [
-      'Outdoor skill progression, storytelling labs, and challenge-by-choice facilitation',
-      'Parent communication plan and pre-arrival readiness checklist',
-      'Built for schools, homeschool pods, and families who want structured growth',
+      'Background checks are conducted for all counselors and staff',
+      'Counselors coach, assist, and support one assigned camper throughout camp',
+      'Camp Dream volunteers are the backbone of every session',
     ],
-    priceLabel: 'From $249 per camper',
-    slug: 'trailblazer-cohort',
+    priceLabel: 'Volunteer opportunities',
+    slug: 'counselors',
     summary:
-      'A leadership-forward youth program built around resilience, teamwork, and camp confidence.',
-    title: 'Trailblazer Cohort',
+      'Counselors provide personal care support, activity assistance, and friendship that help campers thrive.',
+    title: 'Counselor Program',
   },
   {
-    audience: 'Schools, nonprofits, churches, and brands planning retreats or camp-inspired experiences.',
-    duration: 'Custom scope',
+    audience:
+      'Individuals, families, groups, churches, and organizations who want to support campers.',
+    duration: 'Year-round support',
     highlights: [
-      'Offer design, pricing strategy, enrollment UX, and trust-building public pages',
-      'Lead funnels, payment-routing guidance, and operator support for launch week',
-      'Ideal for teams that need camp energy with premium execution standards',
+      'Help fund scholarships so no camper is turned away for financial reasons',
+      'Support Summer Camp and Camp Out activities for Georgia families',
+      'Contribute through one-time gifts, recurring donations, or in-kind support',
     ],
-    priceLabel: 'Custom quote',
-    slug: 'campcraft-studio',
+    priceLabel: 'Donor-supported mission',
+    slug: 'donate',
     summary:
-      'A done-with-you launch partnership for organizations turning outdoor programming into revenue.',
-    title: 'CampCraft Studio',
+      'Donations provide recreational and social opportunities that many campers would otherwise miss.',
+    title: 'Donate & Sponsor',
   },
 ];
 
 export const pricingPlans: PricingPlan[] = [
   {
-    cadence: 'one-time enrollment',
-    ctaHref: '/book',
-    ctaLabel: 'Reserve a Dream Weekend',
-    id: 'dream-weekend',
-    name: 'Dream Weekend',
-    price: '$899',
+    cadence: '4-day overnight session',
+    ctaHref: 'https://www.tfaforms.com/5109972',
+    ctaLabel: 'Camper Application',
+    id: 'summer-camp',
+    name: 'Summer Camp',
+    price: '$800 program cost',
     summary:
-      'Best for families who want a polished, joy-filled weekend with planning support and premium camp touches.',
-    tag: 'Most popular',
+      'Families are asked to pay what they can. Scholarships and community support are available.',
+    tag: 'Registration open',
   },
   {
-    cadence: 'per camper',
-    ctaHref: '/book',
-    ctaLabel: 'Enroll in Trailblazer',
-    id: 'trailblazer',
-    name: 'Trailblazer Cohort',
-    price: '$249',
+    cadence: 'one-to-one support',
+    ctaHref: 'https://www.tfaforms.com/4721374',
+    ctaLabel: 'Counselor Application',
+    id: 'volunteer',
+    name: 'Volunteer Counselor',
+    price: '100% volunteer',
     summary:
-      'A lower-friction way to experience Camp Dream GA through guided leadership programming and skill building.',
-    tag: 'Best entry point',
+      'Counselors provide direct support, coaching, and care for campers throughout each session.',
+    tag: '18+ years old',
   },
   {
-    cadence: 'custom engagement',
-    ctaHref: '/contact',
-    ctaLabel: 'Request a custom scope',
-    highlight: 'Includes pricing architecture, launch UX, and operator support.',
-    id: 'campcraft-studio',
-    name: 'CampCraft Studio',
-    price: 'Custom',
+    cadence: 'year-round support',
+    ctaHref: '/book',
+    ctaLabel: 'Donate to Camp Dream',
+    highlight: 'Camp Dream Foundation is a 501(c)(3), EIN 58-1444915.',
+    id: 'donate',
+    name: 'Donate & Sponsor',
+    price: 'Any amount',
     summary:
-      'For teams building revenue-generating camp, retreat, or outdoor education offers that need a premium front door.',
-    tag: 'For organizations',
+      'Donations support camper scholarships and Camp Dream programming throughout the year.',
+    tag: 'Tax-deductible',
   },
 ];
 
 export const pricingFeatureRows: PricingFeatureRow[] = [
   {
-    label: 'Planning support',
+    label: 'Who it supports',
     values: {
-      'campcraft-studio': 'Full launch partnership',
-      'dream-weekend': 'Hosted pre-arrival guide',
-      trailblazer: 'Parent prep checklist',
+      donate: 'Campers, families, and programs',
+      'summer-camp': 'Campers with special needs',
+      volunteer: 'Assigned camper one-on-one',
     },
   },
   {
-    label: 'Enrollment experience',
+    label: 'Primary action',
     values: {
-      'campcraft-studio': 'Custom booking flow',
-      'dream-weekend': 'Priority booking',
-      trailblazer: 'Single-step signup',
+      donate: 'Contribute online',
+      'summer-camp': 'Submit camper application',
+      volunteer: 'Submit counselor application',
     },
   },
   {
-    label: 'Operator access',
+    label: 'Current status',
     values: {
-      'campcraft-studio': 'Yes, with rollout support',
-      'dream-weekend': 'No',
-      trailblazer: 'No',
+      donate: 'Open year-round',
+      'summer-camp': '2026 registration open',
+      volunteer: '2026 registration open',
     },
   },
   {
-    label: 'Ideal use case',
+    label: 'Program model',
     values: {
-      'campcraft-studio': 'Launch a paid program',
-      'dream-weekend': 'Book a premium family weekend',
-      trailblazer: 'Try the brand with a smaller commitment',
+      donate: 'Community-funded nonprofit support',
+      'summer-camp': 'Overnight camp experience',
+      volunteer: 'One-to-one counselor support',
     },
   },
 ];
 
 export const testimonials: Testimonial[] = [
   {
-    location: 'Roswell, Georgia',
-    name: 'Maya R.',
+    location: 'Georgia',
+    name: 'Cathy Payne',
     quote:
-      'Camp Dream GA felt like someone finally built camp for modern families. The weekend had structure, warmth, and none of the usual planning scramble.',
-    role: 'Parent of two',
+      'Camp Dream means the world to my family and especially my daughter Ashley. The counselors there are God sent and wonderful with all the campers.',
+    role: 'Parent',
   },
   {
-    location: 'Athens, Georgia',
-    name: 'Derrick L.',
+    location: 'Georgia',
+    name: 'Bryson Higgins',
     quote:
-      'The Trailblazer program gave our middle-school group a clear arc from nerves to confidence. The communication with families was especially strong.',
-    role: 'Youth program coordinator',
-  },
-  {
-    location: 'Atlanta, Georgia',
-    name: 'Keisha W.',
-    quote:
-      'The CampCraft engagement sharpened our offer, pricing, and checkout path. We launched with a site that felt premium instead of patched together.',
-    role: 'Retreat founder',
+      'Being a counselor helped me grow as a person. I learned from the campers and look forward to being part of this camp for a very long time.',
+    role: 'Counselor',
   },
 ];
 
 export const homepageFaqs: FaqItem[] = [
   {
     answer:
-      'Camp Dream GA combines outdoor-program planning, premium storytelling, and conversion-ready enrollment experiences. Families get a polished camp weekend, while organizations get launch support that turns camp energy into a clear offer.',
-    question: 'What makes Camp Dream GA different from a typical camp website?',
+      'Camp Dream offers an overnight Summer Camp program designed for children and young adults with moderate to severe physical and developmental disabilities.',
+    question: 'What is Camp Dream?',
   },
   {
     answer:
-      'Yes. Direct purchases and booking flows stay product-first, while ads remain limited to long-form resource pages and only appear when they support discovery rather than distract from enrollment.',
-    question: 'Is this designed for revenue first or AdSense first?',
+      'Camp Dream accepts individuals with disabilities or special needs and has not refused anyone based on medical condition or financial capability.',
+    question: 'Who attends Camp Dream?',
   },
   {
     answer:
-      'Absolutely. The CampCraft Studio offer is built for schools, churches, founders, and community teams who want to launch or reposition camp-style programming with stronger UX and clearer monetization.',
-    question: 'Do you only work with families, or can organizations book support too?',
+      'Summer Camp sessions provide a dedicated medical team for medications, routine care, and emergency support.',
+    question: 'What kind of medical support exists at camp?',
   },
   {
     answer:
-      'The public pages stay content-rich and trustworthy while the operator dashboard remains hidden, protected by server-side authentication, and excluded from sitemaps and ad-bearing templates.',
-    question: 'How is the operator/admin side handled without surfacing it publicly?',
+      'Camp Dream Foundation asks families to pay what they can. Fundraising and donors help cover costs so more campers can attend.',
+    question: 'How much does Summer Camp cost?',
   },
 ];
 
 export const contactDetails = {
-  availability: 'Monday to Friday, 9 AM to 5 PM Eastern',
-  serviceArea: 'Serving Atlanta, North Georgia, and remote planning clients across the Southeast.',
+  availability: 'Camp inquiries accepted year-round',
+  serviceArea: 'Serving campers and families across Georgia and beyond',
   supportNote:
-    'For enrollment help, retreat scoping, or partnership questions, use the form below and we will route you to the fastest next step.',
+    'For Summer Camp, volunteer, donor, and event questions, contact Camp Dream and we will route your inquiry to the right team member.',
 };

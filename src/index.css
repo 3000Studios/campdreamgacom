@@ -3,7 +3,7 @@
 :root {
   --background: #f7f1e8;
   --background-strong: #e8ddcf;
-  --card: rgba(255, 251, 245, 0.82);
+  --card: rgba(255, 251, 245, 0.94);
   --card-border: rgba(72, 56, 34, 0.14);
   --copy: #2d251a;
   --copy-soft: #675844;
@@ -30,11 +30,21 @@ body {
   margin: 0;
   font-family: 'Manrope', 'Segoe UI', sans-serif;
   color: var(--copy);
+  background-color: #f7f1e8;
+  min-height: 100vh;
+}
+
+/* Decorative page background: fixed behind all app content (never stacks above #root). */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
   background:
     radial-gradient(circle at top left, rgba(180, 90, 42, 0.22), transparent 28%),
     radial-gradient(circle at top right, rgba(47, 79, 67, 0.22), transparent 30%),
     linear-gradient(180deg, #faf5ee 0%, #f2e8dc 42%, #efe4d6 100%);
-  min-height: 100vh;
 }
 
 img,
@@ -60,16 +70,22 @@ button {
 }
 
 #root {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
   min-height: 100vh;
 }
 
 .site-shell {
   position: relative;
+  z-index: 0;
   overflow-x: hidden;
 }
 
 .page-shell {
-  padding-top: 5.8rem;
+  position: relative;
+  z-index: 0;
+  padding-top: 8.2rem;
 }
 
 .container {
@@ -133,7 +149,9 @@ li {
   border: 1px solid var(--card-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(14px);
+  /* Keep panels readable; heavy backdrop blur can read like a layer over the whole page on some GPUs. */
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
 }
 
 .hero-section {
@@ -378,16 +396,58 @@ li {
   padding: 0 1.2rem 1.2rem;
 }
 
+.top-disclaimer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 30;
+  background: #1f3f35;
+  color: #f4f9f6;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.top-disclaimer-inner {
+  min-height: 2.35rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.top-disclaimer p {
+  margin: 0;
+  color: #f4f9f6;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.top-disclaimer a {
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+
 .site-header {
   position: fixed;
-  inset: 0 0 auto;
+  top: 2.35rem;
+  right: 0;
+  left: 0;
   z-index: 20;
-  transition: background 180ms ease, box-shadow 180ms ease, backdrop-filter 180ms ease;
+  /* Always sit visually above the page background (avoids “wallpaper through the nav”). */
+  background: rgba(247, 241, 232, 0.88);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition:
+    background 180ms ease,
+    box-shadow 180ms ease,
+    backdrop-filter 180ms ease;
 }
 
 .site-header-scrolled {
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
-  background: rgba(247, 241, 232, 0.82);
+  background: rgba(247, 241, 232, 0.94);
   box-shadow: 0 16px 30px rgba(82, 58, 25, 0.08);
 }
 
@@ -458,7 +518,10 @@ li {
   right: 0.8rem;
   height: 2px;
   background: var(--copy);
-  transition: transform 160ms ease, opacity 160ms ease, top 160ms ease;
+  transition:
+    transform 160ms ease,
+    opacity 160ms ease,
+    top 160ms ease;
 }
 
 .mobile-toggle span:nth-child(1) {
@@ -836,7 +899,7 @@ li {
   }
 
   .page-shell {
-    padding-top: 5rem;
+    padding-top: 8rem;
   }
 
   .hero-overlay-card {
@@ -853,5 +916,18 @@ li {
     left: 1rem;
     right: 1rem;
     width: auto;
+  }
+
+  .top-disclaimer-inner {
+    padding: 0.35rem 0;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .site-header {
+    top: 3.35rem;
+    right: 0;
+    left: 0;
   }
 }

@@ -1,51 +1,85 @@
-import { Link } from 'react-router-dom';
-
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SeoHead } from '@/components/SeoHead';
-import { resourceArticles } from '@/content/resources';
 import { buildBreadcrumbSchema } from '@/lib/schema';
 
 export const ResourcesPage = (): JSX.Element => (
   <>
     <SeoHead
-      description="Explore original planning guides, budgeting resources, and first-time camp content designed for SEO depth and compliant ad placement."
+      description="Camp Dream resources, FAQs, location details, and events."
       path="/resources"
       structuredData={buildBreadcrumbSchema([
         { label: 'Home', path: '/' },
         { label: 'Resources', path: '/resources' },
       ])}
-      title="Blog and Resources"
+      title="Resources"
     />
 
     <section className="section">
       <div className="container prose-shell">
         <Breadcrumbs
-          items={[{ href: '/', label: 'Home' }, { href: '/resources', label: 'Resources' }]}
+          items={[
+            { href: '/', label: 'Home' },
+            { href: '/resources', label: 'Resources' },
+          ]}
         />
         <p className="eyebrow">Resources</p>
-        <h1>Helpful camp planning guides that support better decisions and cleaner conversions.</h1>
+        <h1>Frequently asked questions, location details, and event updates.</h1>
         <p className="lede">
-          These guides are written to be genuinely useful first. When ads are enabled, they appear
-          only on eligible long-form templates and never replace the main next step.
+          Camp Dream resources help families, volunteers, and supporters prepare for Summer Camp and
+          year-round events.
         </p>
       </div>
     </section>
 
     <section className="section">
       <div className="container card-grid">
-        {resourceArticles.map((article) => (
-          <article className="panel resource-card" key={article.slug}>
-            <span className="badge">{article.category}</span>
-            <h2>{article.title}</h2>
-            <p>{article.description}</p>
-            <p className="card-meta">
-              {article.readTime} · Updated {article.updatedAt}
-            </p>
-            <Link className="text-link" to={`/resources/${article.slug}`}>
-              Read the guide
-            </Link>
-          </article>
-        ))}
+        <article className="panel resource-card">
+          <span className="badge">Summer Camp FAQ</span>
+          <h2>Get answers before applying</h2>
+          <p>
+            Learn about age ranges, medical support, housing, meals, activities, and camper-to-staff
+            ratio.
+          </p>
+          <a
+            className="text-link"
+            href="https://www.campdreamga.org/summer-camp-faqs"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            View Summer Camp FAQs
+          </a>
+        </article>
+        <article className="panel resource-card">
+          <span className="badge">Location</span>
+          <h2>Calvin Center, Hampton GA</h2>
+          <p>
+            Camp Dream Summer Camp is held at the Calvin Center, a scenic 536-acre retreat and
+            conference facility.
+          </p>
+          <a
+            className="text-link"
+            href="https://www.campdreamga.org/location"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            View location details
+          </a>
+        </article>
+        <article className="panel resource-card">
+          <span className="badge">Events</span>
+          <h2>Community events and fundraisers</h2>
+          <p>
+            Follow Camp Dream events in Georgia, including fundraisers and outreach opportunities.
+          </p>
+          <a
+            className="text-link"
+            href="https://www.campdreamga.org/events"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            View events calendar
+          </a>
+        </article>
       </div>
     </section>
   </>

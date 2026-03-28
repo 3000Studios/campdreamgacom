@@ -8,7 +8,7 @@ import { buildBreadcrumbSchema, buildServiceSchema } from '@/lib/schema';
 export const ProgramsPage = (): JSX.Element => (
   <>
     <SeoHead
-      description="Explore Dream Weekend, Trailblazer Cohort, and CampCraft Studio to find the best-fit Camp Dream GA program."
+      description="Volunteer as a Camp Dream counselor and support campers one-to-one."
       path="/programs"
       structuredData={[
         buildBreadcrumbSchema([
@@ -19,20 +19,22 @@ export const ProgramsPage = (): JSX.Element => (
           buildServiceSchema(program.title, program.summary, `/programs#${program.slug}`),
         ),
       ]}
-      title="Programs and Services"
+      title="Volunteer and Counselors"
     />
 
     <section className="section">
       <div className="container prose-shell">
         <Breadcrumbs
-          items={[{ href: '/', label: 'Home' }, { href: '/programs', label: 'Programs' }]}
+          items={[
+            { href: '/', label: 'Home' },
+            { href: '/programs', label: 'Programs' },
+          ]}
         />
-        <p className="eyebrow">Programs and services</p>
-        <h1>Choose a camp experience, a leadership pathway, or a launch partnership.</h1>
+        <p className="eyebrow">Volunteer</p>
+        <h1>Counselors are the backbone of every Camp Dream session.</h1>
         <p className="lede">
-          Each offer is built for a different buying moment. Families can book directly. Newcomers
-          can start smaller. Organizations can move into a custom engagement without pushing through
-          a consumer-style checkout flow that does not fit the work.
+          Counselors provide one-on-one interaction, coaching, and support to a specific camper.
+          Anyone age 18 or older may serve as a counselor after background checks are completed.
         </p>
       </div>
     </section>
@@ -58,9 +60,20 @@ export const ProgramsPage = (): JSX.Element => (
                   <li key={highlight}>{highlight}</li>
                 ))}
               </ul>
-              <Link className="button" to="/book">
-                Take the next step
-              </Link>
+              {program.slug === 'counselors' ? (
+                <a
+                  className="button"
+                  href="https://www.tfaforms.com/4721374"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Counselor Application
+                </a>
+              ) : (
+                <Link className="button" to="/book">
+                  Take the next step
+                </Link>
+              )}
             </div>
           </article>
         ))}

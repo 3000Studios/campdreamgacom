@@ -12,7 +12,12 @@ import {
 } from '@/content/siteContent';
 import { trackEvent } from '@/lib/analytics';
 import { runtimeConfig } from '@/lib/runtime';
-import { buildFaqSchema, buildServiceSchema, organizationSchema, websiteSchema } from '@/lib/schema';
+import {
+  buildFaqSchema,
+  buildServiceSchema,
+  organizationSchema,
+  websiteSchema,
+} from '@/lib/schema';
 
 export const HomePage = (): JSX.Element => {
   const featuredResources = resourceArticles.slice(0, 3);
@@ -20,7 +25,7 @@ export const HomePage = (): JSX.Element => {
   return (
     <>
       <SeoHead
-        description="Camp Dream GA blends premium outdoor programs, conversion-ready booking paths, and AdSense-safe resource content for families and retreat founders."
+        description="Camp Dream believes all children and young adults with moderate to severe disabilities deserve recreational and social experiences."
         path="/"
         structuredData={[
           organizationSchema,
@@ -32,21 +37,20 @@ export const HomePage = (): JSX.Element => {
             '/',
           ),
         ]}
-        title="Premium Camp Experiences and Enrollment-Ready Storytelling"
+        title="Camp Dream Georgia"
       />
 
       <section className="hero-section">
         <div className="container hero-grid">
           <div>
-            <p className="eyebrow">Revenue-first public site with camp-inspired trust</p>
+            <p className="eyebrow">Camp Dream Foundation</p>
             <h1 className="display-title">
-              Premium Georgia camp experiences designed to convert with warmth, clarity, and
-              polish.
+              Camp Dream believes every child and young adult with disabilities deserves camp.
             </h1>
             <p className="lede">
-              Camp Dream GA helps families book memorable outdoor experiences and helps founders
-              launch programs with better pages, better offers, and a cleaner path from interest to
-              checkout.
+              Since 1996, Camp Dream has provided traditional summer camp experiences for children
+              and young adults with moderate to severe disabilities regardless of financial
+              situation.
             </p>
             <div className="hero-actions">
               <Link
@@ -54,14 +58,14 @@ export const HomePage = (): JSX.Element => {
                 onClick={() => trackEvent('cta_click', { placement: 'hero', target: '/book' })}
                 to="/book"
               >
-                Book or enroll
+                Donate
               </Link>
               <Link
                 className="button button-secondary"
-                onClick={() => trackEvent('cta_click', { placement: 'hero', target: '/pricing' })}
-                to="/pricing"
+                onClick={() => trackEvent('cta_click', { placement: 'hero', target: '/programs' })}
+                to="/programs"
               >
-                Compare offers
+                Volunteer
               </Link>
             </div>
             <div className="stats-grid">
@@ -90,7 +94,7 @@ export const HomePage = (): JSX.Element => {
               <picture>
                 <source media="(max-width: 720px)" srcSet="/media/hero-forest-mobile.svg" />
                 <img
-                  alt="Illustrated Georgia camp landscape"
+                  alt="Camp Dream Georgia outdoor camp"
                   className="hero-media"
                   loading="eager"
                   src="/media/hero-forest-desktop.svg"
@@ -98,10 +102,10 @@ export const HomePage = (): JSX.Element => {
               </picture>
             )}
             <div className="hero-overlay-card">
-              <p className="eyebrow">Why it converts</p>
+              <p className="eyebrow">Mission</p>
               <p>
-                Product-led booking flows stay front and center while long-form guides, FAQs, and
-                legal trust pages create the depth AdSense expects.
+                We never turn away a camper because of the severity of disability or inability to
+                pay.
               </p>
             </div>
           </div>
@@ -110,9 +114,9 @@ export const HomePage = (): JSX.Element => {
 
       <section className="section section-tight">
         <div className="container trust-strip">
-          <span>Built for families, founders, schools, and retreat teams.</span>
-          <span>Clear legal foundation, strong editorial UX, and compliant ad zones.</span>
-          <span>Operator tools stay hidden, protected, and excluded from public discovery.</span>
+          <span>Summer Camp and Camp Out programs.</span>
+          <span>100% volunteer-led with one-to-one counselor support.</span>
+          <span>Supported by donors, sponsors, and community partners.</span>
         </div>
       </section>
 
@@ -120,10 +124,10 @@ export const HomePage = (): JSX.Element => {
         <div className="container">
           <div className="section-heading">
             <p className="eyebrow">Featured programs</p>
-            <h2>Three ways to buy, book, or build with Camp Dream GA</h2>
+            <h2>Three ways to get involved with Camp Dream</h2>
             <p>
-              The public site is structured around real offers first. Resource pages support demand
-              generation, but revenue comes from polished enrollment and inquiry paths.
+              Camp Dream serves campers through Summer Camp, empowers volunteers through one-to-one
+              counselor experiences, and grows access through donor support.
             </p>
           </div>
           <div className="card-grid">
@@ -150,20 +154,19 @@ export const HomePage = (): JSX.Element => {
         <div className="container split-layout">
           <div>
             <p className="eyebrow">Why families and founders choose us</p>
-            <h2>Editorial storytelling on the front end. Operational clarity underneath.</h2>
+            <h2>Camp Dream creates joy, dignity, and belonging.</h2>
             <p>
-              Camp Dream GA is designed to feel premium without feeling vague. We use original copy,
-              scannable sections, visible trust signals, and grounded pricing context so visitors
-              can make decisions without friction.
+              Campers build friendships and confidence through safe, engaging activities that reduce
+              social isolation and reinforce life skills.
             </p>
             <ul className="check-list">
-              <li>Original content templates with clear H1s, summaries, FAQs, and next-step blocks</li>
-              <li>No ad clutter above the fold and no ads on checkout, admin, or sensitive routes</li>
-              <li>Conversion bridges from resources into booking, pricing, and inquiry flows</li>
+              <li>Inclusive programs designed for moderate to severe disabilities</li>
+              <li>Medical and counselor support in every session</li>
+              <li>Barrier-free camp opportunities funded by community generosity</li>
             </ul>
           </div>
           <div className="panel layered-panel">
-            <p className="eyebrow">Proof of polish</p>
+            <p className="eyebrow">Camp Dream voices</p>
             <div className="testimonial-stack">
               {testimonials.slice(0, 2).map((testimonial) => (
                 <blockquote key={testimonial.name}>
@@ -182,10 +185,10 @@ export const HomePage = (): JSX.Element => {
         <div className="container">
           <div className="section-heading">
             <p className="eyebrow">Resource funnel</p>
-            <h2>Content built for SEO depth, AdSense readiness, and conversion support</h2>
+            <h2>Helpful resources for families, volunteers, and donors</h2>
             <p>
-              Every resource page is substantial, original, and designed to move readers toward the
-              right offer without feeling like a thin ad container.
+              Use these guides and updates to plan for camp, answer common questions, and support
+              the mission.
             </p>
           </div>
           <div className="card-grid">
@@ -206,12 +209,11 @@ export const HomePage = (): JSX.Element => {
       <section className="section">
         <div className="container pricing-callout">
           <div>
-            <p className="eyebrow">Monetization system</p>
-            <h2>Direct purchase, inquiry capture, and custom engagement pathways</h2>
+            <p className="eyebrow">Summer Camp 2026</p>
+            <h2>Camper registration and volunteer applications are open</h2>
             <p>
-              Stripe and PayPal stay in clean, intent-specific paths. Higher-ticket work uses
-              guided inquiry capture. Resource pages stay helpful and premium even when ad slots are
-              enabled.
+              Camp is held at the Calvin Center in Hampton, Georgia. Contact the Camp Director at
+              summercamp@campdreamga.org or 678-367-0040 for session questions.
             </p>
           </div>
           <div className="pricing-mini-grid">

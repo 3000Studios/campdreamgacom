@@ -5,7 +5,7 @@ import { buildBreadcrumbSchema, organizationSchema } from '@/lib/schema';
 export const AboutPage = (): JSX.Element => (
   <>
     <SeoHead
-      description="Learn how Camp Dream GA combines premium camp storytelling, thoughtful operations, and product-led monetization."
+      description="Learn about Camp Dream Foundation mission, values, and year-round impact."
       path="/about"
       structuredData={[
         organizationSchema,
@@ -14,19 +14,26 @@ export const AboutPage = (): JSX.Element => (
           { label: 'About', path: '/about' },
         ]),
       ]}
-      title="About Camp Dream GA"
+      title="What We Do"
     />
 
     <section className="section">
       <div className="container prose-shell">
-        <Breadcrumbs items={[{ href: '/', label: 'Home' }, { href: '/about', label: 'About' }]} />
-        <p className="eyebrow">About the brand</p>
-        <h1>Camp Dream GA is where premium camp energy meets practical launch discipline.</h1>
+        <Breadcrumbs
+          items={[
+            { href: '/', label: 'Home' },
+            { href: '/about', label: 'About' },
+          ]}
+        />
+        <p className="eyebrow">What We Do</p>
+        <h1>
+          Camp Dream provides life-changing camp experiences for children and adults with
+          disabilities.
+        </h1>
         <p className="lede">
-          The brand exists for two groups at once: families looking for meaningful outdoor
-          experiences and founders or organizations shaping their own camp-inspired offers. The
-          throughline is the same in both cases: make the experience feel trustworthy before anyone
-          arrives on site.
+          Since 1996, Camp Dream has offered Summer Camp and Camp Out programs in a barrier-free
+          environment. No child has ever been turned away due to the severity of condition or
+          financial capability.
         </p>
       </div>
     </section>
@@ -34,25 +41,24 @@ export const AboutPage = (): JSX.Element => (
     <section className="section">
       <div className="container split-layout">
         <div>
-          <h2>We believe the public site is part of the hospitality experience.</h2>
+          <h2>Our mission</h2>
           <p>
-            Families often decide whether a camp feels safe, warm, and worth the investment long
-            before they speak to a human. A clear website, thoughtful policies, and strong
-            preparation tools are not just marketing assets. They are part of the experience itself.
+            Camp Dream provides an experience not found elsewhere that enriches the lives of
+            children and young adults with moderate to severe physical and developmental
+            disabilities now, tomorrow, and for the rest of their lives.
           </p>
           <p>
-            That is why Camp Dream GA leads with original storytelling, scannable page architecture,
-            and visible legal trust. It is also why the operator tooling stays hidden and protected:
-            visitors should feel care, not internal machinery.
+            Play and social connection are essential to healthy development. Camp Dream creates a
+            safe space where campers can have fun, build confidence, and feel empowered.
           </p>
         </div>
         <div className="panel">
-          <p className="eyebrow">What this brand prioritizes</p>
+          <p className="eyebrow">What sets us apart</p>
           <ul className="check-list">
-            <li>Warm, outdoors-inspired design that feels elevated rather than rustic-by-default</li>
-            <li>Original content and resource hubs that can support SEO and AdSense approval</li>
-            <li>Product-first revenue paths with ads limited to compliant educational templates</li>
-            <li>Operational tooling that improves launch quality without leaking into the public UX</li>
+            <li>100% volunteer-driven programs and leadership</li>
+            <li>One-to-one camper-to-counselor support model in Summer Camp</li>
+            <li>Financial support model that helps families pay what they can</li>
+            <li>Year-round events and community engagement across Georgia</li>
           </ul>
         </div>
       </div>
@@ -61,36 +67,26 @@ export const AboutPage = (): JSX.Element => (
     <section className="section">
       <div className="container">
         <div className="section-heading">
-          <p className="eyebrow">Local roots</p>
-          <h2>Grounded in Georgia pace, hospitality, and outdoor culture</h2>
+          <p className="eyebrow">Our ethos</p>
+          <h2>Camp Dream imparts self-worth, joy, and belonging.</h2>
           <p>
-            Camp Dream GA draws from North Georgia weekend rhythms, Atlanta-family expectations,
-            and the kind of community storytelling that makes people feel welcomed instead of sold
-            to. That local grounding gives the site more texture and helps resource content feel
-            more useful than generic national advice.
+            Camp Dream counselors and staff work closely with every camper to provide an
+            individualized experience. Campers are encouraged to participate, build friendships, and
+            discover their own strengths.
           </p>
         </div>
         <div className="card-grid">
           <article className="panel">
+            <h3>For campers</h3>
+            <p>Recreational and social opportunities that are often unavailable elsewhere.</p>
+          </article>
+          <article className="panel">
             <h3>For families</h3>
-            <p>
-              We help turn a camp decision into a clear, confident yes by reducing ambiguity around
-              readiness, logistics, and value.
-            </p>
+            <p>A caring community that supports participation regardless of financial ability.</p>
           </article>
           <article className="panel">
-            <h3>For founders</h3>
-            <p>
-              We shape offer architecture, public trust pages, and hidden operator systems that make
-              a launch feel premium from day one.
-            </p>
-          </article>
-          <article className="panel">
-            <h3>For long-term growth</h3>
-            <p>
-              We design the content system so that guides, FAQs, and comparison pages can support
-              organic discovery without becoming thin traffic traps.
-            </p>
+            <h3>For volunteers</h3>
+            <p>Meaningful service opportunities that create life-changing impact.</p>
           </article>
         </div>
       </div>

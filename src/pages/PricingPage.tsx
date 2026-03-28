@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { FaqAccordion } from '@/components/FaqAccordion';
 import { SeoHead } from '@/components/SeoHead';
@@ -9,7 +7,7 @@ import { buildBreadcrumbSchema, buildFaqSchema } from '@/lib/schema';
 export const PricingPage = (): JSX.Element => (
   <>
     <SeoHead
-      description="Compare direct purchase, inquiry-first, and premium engagement options across Camp Dream GA pricing paths."
+      description="Summer Camp dates, facilities, and application details for Camp Dream."
       path="/pricing"
       structuredData={[
         buildBreadcrumbSchema([
@@ -18,20 +16,22 @@ export const PricingPage = (): JSX.Element => (
         ]),
         buildFaqSchema(homepageFaqs),
       ]}
-      title="Pricing and Booking Paths"
+      title="Summer Camp"
     />
 
     <section className="section">
       <div className="container prose-shell">
         <Breadcrumbs
-          items={[{ href: '/', label: 'Home' }, { href: '/pricing', label: 'Pricing' }]}
+          items={[
+            { href: '/', label: 'Home' },
+            { href: '/pricing', label: 'Pricing' },
+          ]}
         />
-        <p className="eyebrow">Pricing built around intent</p>
-        <h1>Direct purchase where it helps. Inquiry-led guidance where it converts better.</h1>
+        <p className="eyebrow">Summer Camp</p>
+        <h1>Camp Dream Summer Camp serves children and young adults with disabilities.</h1>
         <p className="lede">
-          Camp Dream GA separates family bookings, youth enrollments, and higher-ticket launch work
-          so that each path feels natural. This keeps checkout clean, trust intact, and ad placement
-          completely out of the way.
+          Summer Camp is held at the Calvin Center, 13550 Woolsey Rd, Hampton, GA 30228. 2026
+          registration is open, with session dates in July.
         </p>
       </div>
     </section>
@@ -46,9 +46,15 @@ export const PricingPage = (): JSX.Element => (
             <p className="pricing-cadence">{plan.cadence}</p>
             <p>{plan.summary}</p>
             {plan.highlight ? <p className="pricing-highlight">{plan.highlight}</p> : null}
-            <Link className="button" to={plan.ctaHref}>
-              {plan.ctaLabel}
-            </Link>
+            {plan.ctaHref.startsWith('http') ? (
+              <a className="button" href={plan.ctaHref} rel="noreferrer" target="_blank">
+                {plan.ctaLabel}
+              </a>
+            ) : (
+              <a className="button" href={plan.ctaHref}>
+                {plan.ctaLabel}
+              </a>
+            )}
           </article>
         ))}
       </div>
@@ -88,12 +94,11 @@ export const PricingPage = (): JSX.Element => (
     <section className="section">
       <div className="container split-layout">
         <div>
-          <p className="eyebrow">Monetization clarity</p>
-          <h2>Why we keep ads off pricing and checkout pages</h2>
+          <p className="eyebrow">Camp details</p>
+          <h2>What families ask before applying</h2>
           <p>
-            Pricing pages exist to help people buy with confidence. Ads stay on approved resource
-            templates only, which protects conversion, avoids deceptive placement, and keeps the
-            premium feel intact.
+            Campers sleep in dormitory-style cabins with private baths. Meals are provided three
+            times daily with dietary accommodations communicated in the application process.
           </p>
         </div>
         <div className="panel">
