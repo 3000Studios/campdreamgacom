@@ -12,6 +12,8 @@ concurrency:
 
 jobs:
   deploy:
+    # Production only: never deploy from secondary branches (including manual workflow runs).
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: read

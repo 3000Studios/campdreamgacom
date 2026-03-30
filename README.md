@@ -96,6 +96,7 @@ The project uses placeholders only. Never commit real values.
 
 ## Deployment Notes
 
+- **Branching:** `main` is the only production branch. Deploys run only for that branch (see `.github/workflows/deploy-pages.yml`). Merge all work through pull requests into `main`; avoid long-lived staging or release branches in this repository.
 - Cloudflare Pages should deploy the `dist` directory produced by `npm run build`
 - GitHub Actions deployment uses `CLOUDFLARE_MASTER_TOKEN` as the Cloudflare API token and `CLOUDFLARE_ACCOUNT_ID` for authentication
 - Set `API_BASE_URL` as a GitHub repository variable before enabling the Pages workflow so the public site points at the real protected API origin

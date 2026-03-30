@@ -3,3 +3,5 @@ dist
 build
 node_modules
 package-lock.json
+# Prettier has no TOML parser in this project; keep Wrangler config hand-formatted.
+wrangler.toml
