@@ -1,6 +1,10 @@
 # Deployment Handoff
 
+For the sandbox-safe, bot-friendly publish checklist used in this repo, see [AGENTS.md](/mnt/c/Workspaces/campdreamgacom/AGENTS.md).
+
 ## Public Build
+
+The production site must be served only on **`campdreamga.com`** and **`www.campdreamga.com`**. Attach those custom domains in Cloudflare Pages and configure a redirect so one hostname redirects to your chosen canonical (typically apex → `www` or the reverse). Avoid attaching unrelated preview domains to production.
 
 1. Set the production variables in your Cloudflare Pages project:
    - `SITE_DOMAIN`
@@ -27,32 +31,30 @@
    - `CLARITY_PROJECT_ID`
    - `SEARCH_CONSOLE_VERIFICATION`
 
-3. Add these GitHub repository variables for the Pages workflow:
-   - `API_BASE_URL`
-   - `SITE_DOMAIN` if you need something other than `campdreamga.com`
-   - `SITE_URL` if you need something other than `https://campdreamga.com`
-   - `WWW_SITE_URL` if you need something other than `https://www.campdreamga.com`
-   - `CONTACT_EMAIL` if you need something other than `hello@campdreamga.com`
-   - `ENABLE_ADS`
-   - `ADMIN_ROUTE_SLUG`
-   - `BOOKING_URL`
-   - `STRIPE_PAYMENT_LINK`
-   - `PAYPAL_PAYMENT_LINK`
-   - `HERO_VIDEO_URL`
+3. Add these GitHub repository **variables** *or* **secrets** for the Pages workflow (either works; `scripts/write-pages-env-ci.sh` merges `vars.*` with `secrets.*`):
+   - `API_BASE_URL` (required)
+   - `SITE_DOMAIN`, `SITE_URL`, `WWW_SITE_URL` (must match production hosts when `CI=true`; see `scripts/validate-pages-env.ts`)
+   - `CONTACT_EMAIL`, `ENABLE_ADS` (or `VITE_ENABLE_ADS` as a secret)
+   - `ADMIN_ROUTE_SLUG`, `BOOKING_URL`, `STRIPE_PAYMENT_LINK`, `PAYPAL_PAYMENT_LINK`, `HERO_VIDEO_URL`
+   - Optional analytics/payment: `ADSENSE_CLIENT_ID` or `VITE_ADSENSE_CLIENT_ID`, `GA4_MEASUREMENT_ID`, `GTM_CONTAINER_ID`, `META_PIXEL_ID`, `CLARITY_PROJECT_ID`, `SEARCH_CONSOLE_VERIFICATION`
 
-4. Build command:
+4. Cloudflare deploy secrets (also with fallbacks in the workflow): `CLOUDFLARE_MASTER_TOKEN` (or `CLOUDFLARE_API_TOKEN` or `CLOUD_FLARE_API_TOKEN`), `CLOUDFLARE_ACCOUNT_ID` (or fix a typo duplicate `CLLOUDFLARE_ACCOUNT_ID`), optional `CLOUDFLARE_PAGES_PROJECT_NAME` (defaults to `campdreamga`).
+
+5. **Not used by this repository:** Secrets you store in GitHub for other apps (e.g. `RAILWAY_*`, `TELEGRAM_*`, `GH_*`, `ADMIN_API_*`, `JWT_*`, PayPal/Stripe server keys for a backend, etc.) are **ignored** by the Camp Dream GA frontend build unless we add code to read them. Only the names above are wired into `.github/workflows/deploy-pages.yml` and the Vite `__PUBLIC_CONFIG__` bundle.
+
+6. Build command:
 
 ```bash
 npm run build
 ```
 
-5. Output directory:
+7. Output directory:
 
 ```text
 dist
 ```
 
-6. Confirm the generated assets exist before publish:
+8. Confirm the generated assets exist before publish:
 
 ```bash
 public/ads.txt
@@ -60,7 +62,7 @@ public/robots.txt
 public/sitemap.xml
 ```
 
-7. The GitHub Actions workflow in [deploy-pages.yml](/c:/Workspaces/campdreamgacom/.github/workflows/deploy-pages.yml) deploys with `CLOUDFLARE_MASTER_TOKEN` mapped to Wrangler's `CLOUDFLARE_API_TOKEN`. `CLOUDFLARE_ZONE_ID` is not required for this Pages upload flow.
+9. The GitHub Actions workflow in [deploy-pages.yml](/c:/Workspaces/campdreamgacom/.github/workflows/deploy-pages.yml) deploys with `CLOUDFLARE_MASTER_TOKEN` mapped to Wrangler's `CLOUDFLARE_API_TOKEN`. `CLOUDFLARE_ZONE_ID` is not required for this Pages upload flow.
 
 ## Protected API
 
@@ -78,6 +80,9 @@ Required variables:
 - `OPENAI_OPERATOR_MODEL`
 - `GEMINI_API_KEY`
 - `LEAD_WEBHOOK_URL`
+- `HERO_VIDEO_SEARCH_QUERY` (optional, defaults to `summer camp outdoors`)
+- `PEXELS_API_KEY` (optional, enables automatic hero video search)
+- `PIXABAY_API_KEY` (optional, enables automatic hero video search)
 
 Build and run:
 
