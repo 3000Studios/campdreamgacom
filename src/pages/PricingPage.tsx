@@ -1,4 +1,5 @@
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { DemoNotice } from '@/components/DemoNotice';
 import { FaqAccordion } from '@/components/FaqAccordion';
 import { SeoHead } from '@/components/SeoHead';
 import { homepageFaqs, pricingFeatureRows, pricingPlans } from '@/content/siteContent';
@@ -37,6 +38,15 @@ export const PricingPage = (): JSX.Element => (
     </section>
 
     <section className="section">
+      <div className="container">
+        <DemoNotice className="section-heading">
+          Applications and enrollment actions are disabled on this demo site. Use{' '}
+          <a href="https://campdreamga.org" rel="noreferrer" target="_blank">
+            campdreamga.org
+          </a>{' '}
+          for official Camp Dream application details.
+        </DemoNotice>
+      </div>
       <div className="container pricing-grid">
         {pricingPlans.map((plan) => (
           <article className="panel pricing-card" key={plan.id}>
@@ -46,15 +56,9 @@ export const PricingPage = (): JSX.Element => (
             <p className="pricing-cadence">{plan.cadence}</p>
             <p>{plan.summary}</p>
             {plan.highlight ? <p className="pricing-highlight">{plan.highlight}</p> : null}
-            {plan.ctaHref.startsWith('http') ? (
-              <a className="button" href={plan.ctaHref} rel="noreferrer" target="_blank">
-                {plan.ctaLabel}
-              </a>
-            ) : (
-              <a className="button" href={plan.ctaHref}>
-                {plan.ctaLabel}
-              </a>
-            )}
+            <button className="button button-disabled" disabled type="button">
+              {plan.ctaLabel}
+            </button>
           </article>
         ))}
       </div>

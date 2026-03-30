@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 
 import { resourceArticles } from '@/content/resources';
 import { footerNavigation, primaryNavigation } from '@/content/siteContent';
-import { runtimeConfig } from '@/lib/runtime';
 
 export const Footer = (): JSX.Element => (
   <footer className="site-footer">
@@ -43,8 +42,10 @@ export const Footer = (): JSX.Element => (
       <div>
         <p className="footer-list-title">Contact and Policies</p>
         <div className="footer-link-list">
-          <a href={`mailto:${runtimeConfig.contactEmail}`}>{runtimeConfig.contactEmail}</a>
-          <a href="tel:+16783670040">678-367-0040</a>
+          <a href="https://campdreamga.org" rel="noreferrer" target="_blank">
+            Official site: campdreamga.org
+          </a>
+          <span>Demo contact actions are disabled</span>
           {footerNavigation.map((item) => (
             <Link key={item.href} to={item.href}>
               {item.label}
@@ -55,7 +56,7 @@ export const Footer = (): JSX.Element => (
     </div>
     <div className="container footer-bar">
       <p>© 2026 Camp Dream Foundation. All rights reserved.</p>
-      <p>{runtimeConfig.siteDomain}</p>
+      <p>campdreamga.com</p>
     </div>
   </footer>
 );

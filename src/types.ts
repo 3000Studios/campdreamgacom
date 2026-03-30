@@ -8,6 +8,25 @@ export interface FaqItem {
   question: string;
 }
 
+export interface HeroMediaResponse {
+  query: string;
+  results: HeroVideoAsset[];
+  selected: HeroVideoAsset | null;
+}
+
+export interface HeroVideoAsset {
+  attributionName: string;
+  attributionUrl: string;
+  duration: number;
+  height: number;
+  id: string;
+  posterUrl: string;
+  provider: 'pexels' | 'pixabay';
+  sourceUrl: string;
+  videoUrl: string;
+  width: number;
+}
+
 export interface LegalPage {
   description: string;
   sections: ArticleSection[];

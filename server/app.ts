@@ -15,6 +15,7 @@ import {
   verifySessionToken,
 } from './auth.js';
 import type { ServerEnv } from './config.js';
+import { findHeroMedia } from './heroMedia.js';
 import {
   buildOperatorLogEntry,
   buildOperatorProposal,
@@ -97,6 +98,12 @@ export const createApp = (env: ServerEnv): express.Express => {
     }
 
     response.status(201).json({ ok: true });
+  });
+
+  app.get('/api/hero-media', async (request, response) => {
+    const query = typeof request.query.query === 'string' ? request.query.query : undefined;
+    const heroMedia = await findHeroMedia(env, query);
+    response.json(heroMedia);
   });
 
   app.post('/api/admin/session', loginLimiter, (request, response) => {

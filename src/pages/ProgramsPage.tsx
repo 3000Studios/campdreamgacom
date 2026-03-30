@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
-
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { DemoNotice } from '@/components/DemoNotice';
 import { SeoHead } from '@/components/SeoHead';
 import { programs } from '@/content/siteContent';
 import { buildBreadcrumbSchema, buildServiceSchema } from '@/lib/schema';
@@ -40,6 +39,15 @@ export const ProgramsPage = (): JSX.Element => (
     </section>
 
     <section className="section">
+      <div className="container">
+        <DemoNotice className="section-heading">
+          Volunteer applications and next-step actions are disabled on this demo site. Use{' '}
+          <a href="https://campdreamga.org" rel="noreferrer" target="_blank">
+            campdreamga.org
+          </a>{' '}
+          for official Camp Dream volunteer information.
+        </DemoNotice>
+      </div>
       <div className="container stack-layout">
         {programs.map((program) => (
           <article className="panel program-detail" id={program.slug} key={program.slug}>
@@ -61,18 +69,13 @@ export const ProgramsPage = (): JSX.Element => (
                 ))}
               </ul>
               {program.slug === 'counselors' ? (
-                <a
-                  className="button"
-                  href="https://www.tfaforms.com/4721374"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
+                <button className="button button-disabled" disabled type="button">
                   Counselor Application
-                </a>
+                </button>
               ) : (
-                <Link className="button" to="/book">
+                <button className="button button-disabled" disabled type="button">
                   Take the next step
-                </Link>
+                </button>
               )}
             </div>
           </article>

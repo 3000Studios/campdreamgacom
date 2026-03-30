@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { FaqAccordion } from '@/components/FaqAccordion';
@@ -18,9 +19,46 @@ import {
   organizationSchema,
   websiteSchema,
 } from '@/lib/schema';
+import type { HeroMediaResponse, HeroVideoAsset } from '@/types';
 
 export const HomePage = (): JSX.Element => {
   const featuredResources = resourceArticles.slice(0, 3);
+  const [heroVideo, setHeroVideo] = useState<HeroVideoAsset | null>(null);
+
+  useEffect(() => {
+    if (runtimeConfig.heroVideoUrl) {
+      return;
+    }
+
+    let isCancelled = false;
+
+    const loadHeroMedia = async (): Promise<void> => {
+      try {
+        const response = await fetch('/api/hero-media');
+        if (!response.ok) {
+          return;
+        }
+
+        const payload = (await response.json()) as HeroMediaResponse;
+        if (!isCancelled) {
+          setHeroVideo(payload.selected);
+        }
+      } catch {
+        // Keep the bundled art fallback when the provider lookup is unavailable.
+      }
+    };
+
+    void loadHeroMedia();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
+
+  const heroVideoUrl = runtimeConfig.heroVideoUrl || heroVideo?.videoUrl || '';
+  const heroPosterUrl = heroVideo?.posterUrl || '/media/hero-forest-mobile.svg';
+  const heroProviderName =
+    heroVideo?.provider === 'pexels' ? 'Pexels' : heroVideo?.provider === 'pixabay' ? 'Pixabay' : '';
 
   return (
     <>
@@ -79,16 +117,16 @@ export const HomePage = (): JSX.Element => {
           </div>
 
           <div className="hero-visual panel">
-            {runtimeConfig.heroVideoUrl ? (
+            {heroVideoUrl ? (
               <video
                 autoPlay
                 className="hero-media"
                 loop
                 muted
                 playsInline
-                poster="/media/hero-forest-mobile.svg"
+                poster={heroPosterUrl}
               >
-                <source src={runtimeConfig.heroVideoUrl} />
+                <source src={heroVideoUrl} />
               </video>
             ) : (
               <picture>
@@ -101,6 +139,19 @@ export const HomePage = (): JSX.Element => {
                 />
               </picture>
             )}
+            {heroVideo ? (
+              <p className="hero-attribution">
+                Video from{' '}
+                <a className="text-link" href={heroVideo.sourceUrl} rel="noreferrer" target="_blank">
+                  {heroProviderName}
+                </a>{' '}
+                by{' '}
+                <a className="text-link" href={heroVideo.attributionUrl} rel="noreferrer" target="_blank">
+                  {heroVideo.attributionName}
+                </a>
+                .
+              </p>
+            ) : null}
             <div className="hero-overlay-card">
               <p className="eyebrow">Mission</p>
               <p>

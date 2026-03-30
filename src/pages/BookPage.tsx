@@ -1,4 +1,5 @@
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { DemoNotice } from '@/components/DemoNotice';
 import { SeoHead } from '@/components/SeoHead';
 import { buildBreadcrumbSchema } from '@/lib/schema';
 
@@ -33,45 +34,39 @@ export const BookPage = (): JSX.Element => (
     </section>
 
     <section className="section">
+      <div className="container">
+        <DemoNotice className="section-heading">
+          Donations and supply requests are disabled on this demo site. Visit{' '}
+          <a href="https://campdreamga.org" rel="noreferrer" target="_blank">
+            campdreamga.org
+          </a>{' '}
+          for official Camp Dream donation options.
+        </DemoNotice>
+      </div>
       <div className="container pricing-grid">
         <article className="panel pricing-card">
           <span className="badge">Primary</span>
           <h2>Online Donation</h2>
           <p>Donate securely to Camp Dream Foundation.</p>
-          <a
-            className="button"
-            href="https://app.formassembly.com/4723988"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+          <button className="button button-disabled" disabled type="button">
             Donate
-          </a>
+          </button>
         </article>
         <article className="panel pricing-card">
           <span className="badge">Monthly impact</span>
           <h2>Round-Up Program</h2>
           <p>Round up your change to support Camp Dream programs year-round.</p>
-          <a
-            className="button"
-            href="https://donate.caringcent.com/#/go/campdream"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+          <button className="button button-disabled" disabled type="button">
             Join Round-Up
-          </a>
+          </button>
         </article>
         <article className="panel pricing-card">
           <span className="badge">Volunteer support</span>
           <h2>Supplies Needed</h2>
           <p>Support Summer Camp and Camp Out by donating supplies from our list.</p>
-          <a
-            className="button"
-            href="https://smile.amazon.com/gp/clpf"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+          <button className="button button-disabled" disabled type="button">
             View Supplies List
-          </a>
+          </button>
         </article>
       </div>
     </section>

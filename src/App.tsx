@@ -35,14 +35,13 @@ const App = (): JSX.Element => {
         <Route path="/thanks" element={<ThanksPage />} />
         <Route path="/booking/:status" element={<BookingStatusPage />} />
         <Route path="/policy/:slug" element={<LegalPageView />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
 
       <Route path={adminRoute} element={<OperatorLayout />}>
         <Route index element={<OperatorLoginPage />} />
         <Route path="dashboard" element={<OperatorDashboardPage />} />
       </Route>
-
-      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };

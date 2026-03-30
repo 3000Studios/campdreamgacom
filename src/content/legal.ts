@@ -90,28 +90,28 @@ export const legalPages: LegalPage[] = [
   },
   {
     description:
-      'Important notices about Camp Dream content, program information, and third-party links.',
+      'Important notice that this website is an unofficial demo and not the official Camp Dream website.',
     sections: [
       {
         body: [
-          'Camp Dream is operated by the Camp Dream Foundation, a registered 501(c)(3) nonprofit organization (EIN 58-1444915).',
-          'Information on this website is provided to help families, volunteers, and donors learn about Camp Dream programs and opportunities.',
+          'This website is an independent demo and test build. It is not the official Camp Dream website.',
+          'The official Camp Dream website is https://campdreamga.org. Nothing on this demo site should be treated as official Camp Dream information.',
         ],
-        title: 'Organization and informational use',
+        title: 'Official website notice',
       },
       {
         body: [
-          'Summer Camp dates, facilities, staffing, and availability can change. Submission of a camper or counselor application does not guarantee placement until confirmation is provided by Camp Dream.',
-          'Camp Dream strives to keep all details current, but families and volunteers should confirm critical information directly with camp leadership.',
+          'This demo is not affiliated with, endorsed by, sponsored by, or maintained by Camp Dream or campdreamga.org.',
+          'References to Camp Dream on this site are included only for design, development, and testing purposes.',
         ],
-        title: 'Program information and availability',
+        title: 'No affiliation or endorsement',
       },
       {
         body: [
-          'This website may include links to third-party services (for example application forms and donation providers). Camp Dream is not responsible for the content or practices of external sites.',
-          'Website content is not medical, legal, or financial advice. Families and volunteers should seek qualified professional guidance where appropriate.',
+          'Any forms, calls to action, or example content shown on this site are demo content only and should not be relied upon for real-world Camp Dream decisions.',
+          'If you need official information about Camp Dream, always use https://campdreamga.org or the organization’s verified channels.',
         ],
-        title: 'Third-party links and responsibility',
+        title: 'Use of this demo',
       },
     ],
     slug: 'disclaimer',

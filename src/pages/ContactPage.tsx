@@ -1,8 +1,8 @@
 import { Breadcrumbs } from '@/components/Breadcrumbs';
+import { DemoNotice } from '@/components/DemoNotice';
 import { LeadCaptureForm } from '@/components/LeadCaptureForm';
 import { SeoHead } from '@/components/SeoHead';
 import { contactDetails } from '@/content/siteContent';
-import { runtimeConfig } from '@/lib/runtime';
 import { buildBreadcrumbSchema } from '@/lib/schema';
 
 export const ContactPage = (): JSX.Element => (
@@ -30,12 +30,21 @@ export const ContactPage = (): JSX.Element => (
           <h1>Contact Camp Dream for camp, volunteer, and donor questions.</h1>
           <p className="lede">{contactDetails.supportNote}</p>
           <div className="panel">
+            <DemoNotice>
+              Contact actions are disabled on this demo site. Use{' '}
+              <a href="https://campdreamga.org" rel="noreferrer" target="_blank">
+                campdreamga.org
+              </a>{' '}
+              for official Camp Dream contact information and live inquiry options.
+            </DemoNotice>
             <p>
-              <strong>Phone:</strong> <a href="tel:+16783670040">678-367-0040</a>
+              <strong>Official site:</strong>{' '}
+              <a href="https://campdreamga.org" rel="noreferrer" target="_blank">
+                campdreamga.org
+              </a>
             </p>
             <p>
-              <strong>Email:</strong>{' '}
-              <a href={`mailto:${runtimeConfig.contactEmail}`}>{runtimeConfig.contactEmail}</a>
+              <strong>Phone:</strong> Demo contact actions are disabled
             </p>
             <p>
               <strong>Availability:</strong> {contactDetails.availability}

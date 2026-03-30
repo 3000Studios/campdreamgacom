@@ -16,11 +16,14 @@ export const ThanksPage = (): JSX.Element => {
       />
       <section className="section">
         <div className="container narrow-panel panel">
-          <p className="eyebrow">Inquiry received</p>
-          <h1>Thanks. We have your request.</h1>
+          <p className="eyebrow">Demo page</p>
+          <h1>Submissions are disabled on this test site.</h1>
           <p>
-            We will use the details you shared to recommend the best next step. Source:{' '}
-            <strong>{source ?? 'general inquiry'}</strong>.
+            No inquiry was sent from this demo. If you need official Camp Dream information, use{' '}
+            <a href="https://campdreamga.org" rel="noreferrer" target="_blank">
+              campdreamga.org
+            </a>
+            . Demo source: <strong>{source ?? 'general inquiry'}</strong>.
           </p>
           <div className="hero-actions">
             <Link className="button" to="/pricing">
