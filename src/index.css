@@ -82,12 +82,39 @@ button {
   position: relative;
   z-index: 0;
   overflow-x: hidden;
+  isolation: isolate;
 }
 
 .page-shell {
   position: relative;
   z-index: 0;
   padding-top: 10rem;
+}
+
+.site-video-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #120808;
+}
+
+.site-video-backdrop-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0.34;
+  filter: saturate(0.88) contrast(0.96) brightness(0.74);
+}
+
+.site-video-backdrop-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 250, 0.7) 0%, rgba(252, 247, 244, 0.78) 35%, rgba(245, 239, 235, 0.86) 100%),
+    radial-gradient(circle at top center, rgba(204, 33, 39, 0.16), transparent 36%);
 }
 
 .container {
@@ -798,11 +825,13 @@ li {
 }
 
 .operator-shell {
+  position: relative;
+  isolation: isolate;
   min-height: 100vh;
   padding: calc(2rem + var(--top-disclaimer-offset)) 1rem 2rem;
   background:
-    radial-gradient(circle at top left, rgba(204, 33, 39, 0.2), transparent 24%),
-    linear-gradient(180deg, #28150f 0%, #3a1d16 100%);
+    radial-gradient(circle at top left, rgba(204, 33, 39, 0.14), transparent 24%),
+    linear-gradient(180deg, rgba(40, 21, 15, 0.7) 0%, rgba(58, 29, 22, 0.8) 100%);
 }
 
 .operator-shell-panel,
@@ -899,6 +928,10 @@ li {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .site-video-backdrop-media {
+    display: none;
+  }
+
   *,
   *::before,
   *::after {
