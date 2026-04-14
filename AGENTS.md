@@ -57,3 +57,29 @@ cmd.exe /c "set GH_TOKEN=& gh run list -L 5 --json databaseId,workflowName,headS
 - A push to `main` does trigger both `CI` and `Deploy Pages`.
 - If those workflows fail, treat that as a repo or workflow issue to inspect before telling the user the sandbox is live.
 - Always report the exact run URL back to the user when a publish attempt fails.
+
+## Cursor Cloud specific instructions
+
+### Services overview
+
+| Service | Command | Port | Notes |
+|---|---|---|---|
+| Vite frontend | `npm run dev:web` | 5173 | React SPA; proxies `/api` to backend |
+| Express API | `npm run dev:server` | 8787 | Requires `.env` file |
+| Both together | `npm run dev` | 5173 + 8787 | Uses `concurrently` |
+
+### Environment setup
+
+- `.env` must exist before starting the server. Copy from `.env.example` and fill in at minimum: `ADMIN_EMAIL` (valid email), `ADMIN_PASSCODE` (min 4 chars), `SESSION_SECRET` (min 32 chars). All other vars have safe defaults or are optional.
+- The `.env` file is loaded by `tsx watch --env-file=.env` for the server. The Vite frontend reads `VITE_`-prefixed vars only (none currently required).
+
+### Verification commands
+
+See `README.md` "Commands" section. The three core checks are `npm run lint`, `npm run typecheck`, and `npm run test`. The `--no-verify` flag is needed for git commits because `.husky/pre-commit` references a missing `_/husky.sh` helper.
+
+### Gotchas
+
+- The server's `tsx watch` mode does **not** pick up new npm packages automatically; restart `npm run dev:server` after installing new dependencies.
+- `npm run build` runs `generate:static` first (writes `public/ads.txt`, `public/robots.txt`, `public/sitemap.xml`), then Vite build, then tsup server build. These generated files are gitignored.
+- The inquiry POST endpoint is at `/api/inquiries` (plural) and requires fields: `name`, `email`, `intent`, `source`, and optionally `note`.
+- Admin login is at `POST /api/admin/session` with `{"email":"...","passcode":"..."}` matching the `.env` values.
