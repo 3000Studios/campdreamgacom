@@ -4,7 +4,18 @@ import path from 'node:path';
 const rootDirectory = process.cwd();
 const publicDirectory = path.join(rootDirectory, 'public');
 
-const siteUrl = process.env.SITE_URL ?? 'https://campdreamga.com';
+const normalizeSiteUrl = (value: string | undefined): string => {
+  if (!value) return 'https://campdreamga.com';
+
+  const trimmed = value.trim();
+  const candidate = trimmed.includes('=')
+    ? (trimmed.split('=').filter(Boolean).pop() ?? '').trim()
+    : trimmed;
+
+  return candidate.startsWith('http://') || candidate.startsWith('https://') ? candidate : 'https://campdreamga.com';
+};
+
+const siteUrl = normalizeSiteUrl(process.env.SITE_URL);
 const adsenseClientId = process.env.ADSENSE_CLIENT_ID ?? '';
 const resourceSlugs = [
   'choose-the-right-georgia-camp-experience',
