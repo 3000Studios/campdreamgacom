@@ -16,7 +16,7 @@ const normalizeSiteUrl = (value: string | undefined): string => {
 };
 
 const siteUrl = normalizeSiteUrl(process.env.SITE_URL);
-const adsenseClientId = process.env.ADSENSE_CLIENT_ID ?? '';
+const adsenseClientId = process.env.ADSENSE_CLIENT_ID ?? 'ca-pub-5800977493749262';
 const resourceSlugs = [
   'choose-the-right-georgia-camp-experience',
   'camp-packing-list-georgia',
@@ -59,9 +59,7 @@ const buildSitemapXml = (): string => {
   );
 };
 
-const adsTxtContent = adsenseClientId.startsWith('ca-pub-')
-  ? `google.com, ${adsenseClientId.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n`
-  : '# Add your Google AdSense publisher id as ADSENSE_CLIENT_ID to generate a production ads.txt file.\n';
+const adsTxtContent = `google.com, ${adsenseClientId.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n`;
 
 const robotsContent = `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\n`;
 
