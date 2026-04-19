@@ -16,7 +16,8 @@ const normalizeSiteUrl = (value: string | undefined): string => {
 };
 
 const siteUrl = normalizeSiteUrl(process.env.SITE_URL);
-const adsenseClientId = process.env.ADSENSE_CLIENT_ID ?? 'ca-pub-5800977493749262';
+const adsenseClientIdFromEnv = (process.env.ADSENSE_CLIENT_ID ?? '').trim();
+const adsenseClientId = adsenseClientIdFromEnv.length > 0 ? adsenseClientIdFromEnv : 'ca-pub-5800977493749262';
 const resourceSlugs = [
   'choose-the-right-georgia-camp-experience',
   'camp-packing-list-georgia',
