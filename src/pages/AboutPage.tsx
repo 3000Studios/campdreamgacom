@@ -5,7 +5,7 @@ import { buildBreadcrumbSchema, organizationSchema } from '@/lib/schema';
 export const AboutPage = (): JSX.Element => (
   <>
     <SeoHead
-      description="Learn about Camp Dream Foundation mission, values, and year-round impact."
+      description="Learn about the Camp Dream Store sandbox storefront: joyful design, original guides, and AdSense-ready structure."
       path="/about"
       structuredData={[
         organizationSchema,
@@ -14,7 +14,7 @@ export const AboutPage = (): JSX.Element => (
           { label: 'About', path: '/about' },
         ]),
       ]}
-      title="What We Do"
+      title="About"
     />
 
     <section className="section">
@@ -25,15 +25,11 @@ export const AboutPage = (): JSX.Element => (
             { href: '/about', label: 'About' },
           ]}
         />
-        <p className="eyebrow">What We Do</p>
-        <h1>
-          Camp Dream provides life-changing camp experiences for children and adults with
-          disabilities.
-        </h1>
+        <p className="eyebrow">About</p>
+        <h1>A sandbox storefront built for joy, motion, and clean navigation.</h1>
         <p className="lede">
-          Since 1996, Camp Dream has offered Summer Camp and Camp Out programs in a barrier-free
-          environment. No child has ever been turned away due to the severity of condition or
-          financial capability.
+          This repository is a concept store: product pages, collections, a cart flow, and a growing
+          library of original guides designed to be readable and AdSense-review-ready.
         </p>
       </div>
     </section>
@@ -41,24 +37,25 @@ export const AboutPage = (): JSX.Element => (
     <section className="section">
       <div className="container split-layout">
         <div>
-          <h2>Our mission</h2>
+          <h2>What we’re building</h2>
           <p>
-            Camp Dream provides an experience not found elsewhere that enriches the lives of
-            children and young adults with moderate to severe physical and developmental
-            disabilities now, tomorrow, and for the rest of their lives.
+            A playful storefront experience that feels premium and light: responsive layout, hover
+            glow, animated backdrops, and video-forward storytelling that stays behind readable
+            content.
           </p>
           <p>
-            Play and social connection are essential to healthy development. Camp Dream creates a
-            safe space where campers can have fun, build confidence, and feel empowered.
+            The goal is to keep the site simple for visitors while keeping it technically ready for
+            monetization review: clear navigation, legal pages, crawlable content, and a clean
+            index for guides.
           </p>
         </div>
         <div className="panel">
-          <p className="eyebrow">What sets us apart</p>
+          <p className="eyebrow">What’s included</p>
           <ul className="check-list">
-            <li>100% volunteer-driven programs and leadership</li>
-            <li>One-to-one camper-to-counselor support model in Summer Camp</li>
-            <li>Financial support model that helps families pay what they can</li>
-            <li>Year-round events and community engagement across Georgia</li>
+            <li>Storefront: shop, product pages, cart, checkout request</li>
+            <li>Collections: curated “pick a vibe” shopping</li>
+            <li>Guides: chronological, numbered index + article pages</li>
+            <li>AdSense readiness: policies, sitemap, robots, ads loader gates</li>
           </ul>
         </div>
       </div>
@@ -67,26 +64,25 @@ export const AboutPage = (): JSX.Element => (
     <section className="section">
       <div className="container">
         <div className="section-heading">
-          <p className="eyebrow">Our ethos</p>
-          <h2>Camp Dream imparts self-worth, joy, and belonging.</h2>
+          <p className="eyebrow">Design ethos</p>
+          <h2>Joyful, readable, and fast.</h2>
           <p>
-            Camp Dream counselors and staff work closely with every camper to provide an
-            individualized experience. Campers are encouraged to participate, build friendships, and
-            discover their own strengths.
+            Motion and 3D-style visuals should support delight without compromising accessibility,
+            performance, or clarity.
           </p>
         </div>
         <div className="card-grid">
           <article className="panel">
-            <h3>For campers</h3>
-            <p>Recreational and social opportunities that are often unavailable elsewhere.</p>
+            <h3>For shoppers</h3>
+            <p>Fast scanning, clean product pages, and easy “email order request” checkout.</p>
           </article>
           <article className="panel">
-            <h3>For families</h3>
-            <p>A caring community that supports participation regardless of financial ability.</p>
+            <h3>For readers</h3>
+            <p>Original guides with consistent structure and auto-playing video headers.</p>
           </article>
           <article className="panel">
-            <h3>For volunteers</h3>
-            <p>Meaningful service opportunities that create life-changing impact.</p>
+            <h3>For growth</h3>
+            <p>Ad-ready templates, SEO metadata, and content that can expand over time.</p>
           </article>
         </div>
       </div>

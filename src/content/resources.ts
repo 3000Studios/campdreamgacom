@@ -1,12 +1,12 @@
-import type { ResourceArticle } from '@/types';
+import type { ResourceArticle } from '../types.js';
 
 export const resourceArticles: ResourceArticle[] = [
   {
     adEligible: true,
     category: 'Planning Guides',
     ctaBody:
-      'If you want a version of this planning work already translated into a polished booking flow, Camp Dream GA can guide the program design and enrollment experience for you.',
-    ctaTitle: 'Turn your research into a booked experience',
+      'If you want to turn this research into action, start with our curated collections and shop pages—built to keep decisions simple and joyful.',
+    ctaTitle: 'Turn your research into a confident cart',
     description:
       'A practical guide for families comparing weekend camp, overnight camp, and structured outdoor programs in Georgia.',
     faq: [
@@ -81,8 +81,8 @@ export const resourceArticles: ResourceArticle[] = [
     adEligible: true,
     category: 'Packing & Logistics',
     ctaBody:
-      'We convert prep work like this into guided checklists, calmer arrival-day communication, and premium pre-camp support inside every Camp Dream GA enrollment flow.',
-    ctaTitle: 'Prefer a prep process that already feels handled?',
+      'Prefer a packing process that already feels handled? Browse the Daytrip Essentials collection and build a cart in minutes.',
+    ctaTitle: 'Want a prep kit that feels curated?',
     description:
       'A realistic packing list for Georgia camp weekends, including what families usually forget and how to avoid overpacking.',
     faq: [
@@ -150,8 +150,8 @@ export const resourceArticles: ResourceArticle[] = [
     adEligible: true,
     category: 'First-Time Campers',
     ctaBody:
-      'If you want the first overnight experience to feel premium and supported, Camp Dream GA can help you choose the format, prep the family, and simplify the enrollment path.',
-    ctaTitle: 'Need help planning a first overnight experience?',
+      'If you want the first overnight experience to feel calmer and more joyful, start with the essentials: comfort, warmth layers, and a simple “find it fast” bag setup.',
+    ctaTitle: 'Need help planning a first overnight?',
     description:
       'The key questions families should ask before booking a first overnight camp or leadership-style outdoor program.',
     faq: [

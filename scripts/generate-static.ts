@@ -1,6 +1,8 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
+import { getPublicRouteEntries } from '../src/content/routes.js';
+
 const rootDirectory = process.cwd();
 const publicDirectory = path.join(rootDirectory, 'public');
 
@@ -18,25 +20,7 @@ const normalizeSiteUrl = (value: string | undefined): string => {
 const siteUrl = normalizeSiteUrl(process.env.SITE_URL);
 const adsenseClientIdFromEnv = (process.env.ADSENSE_CLIENT_ID ?? '').trim();
 const adsenseClientId = adsenseClientIdFromEnv.length > 0 ? adsenseClientIdFromEnv : 'ca-pub-5800977493749262';
-const resourceSlugs = [
-  'choose-the-right-georgia-camp-experience',
-  'camp-packing-list-georgia',
-  'first-overnight-camp-questions',
-  'budget-for-camp-without-stress',
-];
-const legalSlugs = ['privacy', 'terms', 'cookies', 'disclaimer'];
-
-const routeEntries = [
-  { changeFrequency: 'weekly', path: '/', priority: 1.0 },
-  { changeFrequency: 'monthly', path: '/about', priority: 0.8 },
-  { changeFrequency: 'weekly', path: '/programs', priority: 0.9 },
-  { changeFrequency: 'weekly', path: '/pricing', priority: 0.9 },
-  { changeFrequency: 'weekly', path: '/book', priority: 0.8 },
-  { changeFrequency: 'weekly', path: '/contact', priority: 0.8 },
-  { changeFrequency: 'weekly', path: '/resources', priority: 0.9 },
-  ...resourceSlugs.map((slug) => ({ changeFrequency: 'monthly', path: `/resources/${slug}`, priority: 0.7 })),
-  ...legalSlugs.map((slug) => ({ changeFrequency: 'monthly', path: `/policy/${slug}`, priority: 0.5 })),
-];
+const routeEntries = getPublicRouteEntries().filter((entry) => !entry.noIndex);
 
 const buildSitemapXml = (): string => {
   const urls = routeEntries

@@ -16,14 +16,17 @@ export const NotFoundPage = (): JSX.Element => (
         <h1>That page is not on the trail map.</h1>
         <p>
           The public site may have moved, or the link may be outdated. Use the homepage or
-          resources hub to continue.
+          shop and guides to continue.
         </p>
         <div className="hero-actions">
           <Link className="button" to="/">
             Go home
           </Link>
           <Link className="button button-secondary" to="/resources">
-            Browse resources
+            Browse guides
+          </Link>
+          <Link className="button button-secondary" to="/shop">
+            Shop
           </Link>
         </div>
       </div>

@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
 
   const publicConfig = {
     adminRouteSlug: env.ADMIN_ROUTE_SLUG ?? 'operator-portal',
-    adsenseClientId: env.ADSENSE_CLIENT_ID ?? '',
+    adsenseClientId: env.ADSENSE_CLIENT_ID ?? 'ca-pub-5800977493749262',
     apiBaseUrl: env.API_BASE_URL ?? 'http://localhost:8787',
     bookingUrl: env.BOOKING_URL ?? '',
     clarityProjectId: env.CLARITY_PROJECT_ID ?? '',

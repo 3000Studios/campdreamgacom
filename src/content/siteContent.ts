@@ -10,11 +10,10 @@ import type {
 
 export const primaryNavigation: NavItem[] = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'What We Do' },
-  { href: '/programs', label: 'Volunteer' },
-  { href: '/pricing', label: 'Summer Camp' },
-  { href: '/resources', label: 'Resources' },
-  { href: '/book', label: 'Donate' },
+  { href: '/shop', label: 'Shop' },
+  { href: '/collections', label: 'Collections' },
+  { href: '/resources', label: 'Guides' },
+  { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
 

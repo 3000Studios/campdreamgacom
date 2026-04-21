@@ -51,6 +51,24 @@ export const ResourceArticlePage = (): JSX.Element => {
             <span className="badge">{article.category}</span>
             <h1>{article.title}</h1>
             <p className="lede">{article.intro}</p>
+            <div className="panel article-hero-media">
+              <video
+                autoPlay
+                className="article-hero-video"
+                loop
+                muted
+                playsInline
+                poster="/media/252131-poster.jpg"
+              >
+                <source src="/media/252131-web.mp4" type="video/mp4" />
+              </video>
+              <p className="media-attribution">
+                Video from{' '}
+                <a className="text-link" href="https://coverr.co" rel="noreferrer" target="_blank">
+                  Coverr
+                </a>
+              </p>
+            </div>
             <div className="article-meta">
               <span>{article.readTime}</span>
               <span>Published {article.publishedAt}</span>
@@ -79,11 +97,11 @@ export const ResourceArticlePage = (): JSX.Element => {
               <h2>{article.ctaTitle}</h2>
               <p>{article.ctaBody}</p>
               <div className="hero-actions">
-                <Link className="button" to="/book">
-                  Book or enroll
+                <Link className="button" to="/shop">
+                  Shop the picks
                 </Link>
-                <Link className="button button-secondary" to="/pricing">
-                  Compare offers
+                <Link className="button button-secondary" to="/checkout">
+                  Checkout
                 </Link>
               </div>
             </div>

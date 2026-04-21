@@ -1,13 +1,13 @@
-import type { LegalPage } from '@/types';
+import type { LegalPage } from '../types.js';
 
 export const legalPages: LegalPage[] = [
   {
     description:
-      'How Camp Dream GA handles personal information, marketing preferences, and operator-dashboard access data.',
+      'How the Camp Dream Store sandbox storefront handles personal information, marketing preferences, and operator-dashboard access data.',
     sections: [
       {
         body: [
-          'Camp Dream GA collects only the information needed to respond to inquiries, support bookings, deliver requested updates, and improve site operations. This can include contact details, booking-intent information, device data, and limited analytics events when consent is granted.',
+          'Camp Dream Store collects only the information needed to respond to inquiries, support order requests, deliver requested updates, and improve site operations. This can include contact details, order-intent information, device data, and limited analytics events when consent is granted.',
           'We do not sell personal information. We use data to provide the experience visitors ask for and to measure whether our public site is clear, trustworthy, and useful.',
         ],
         title: 'What we collect and why',
@@ -15,7 +15,7 @@ export const legalPages: LegalPage[] = [
       {
         body: [
           'Essential technical data helps us operate the site, detect abuse, and maintain hidden operator routes securely. Optional analytics and advertising data are loaded only after consent is granted through the site banner.',
-          'If you submit an inquiry form, we use that information to respond to your request, prepare a quote, or recommend the right next step.',
+          'If you submit an inquiry form, we use that information to respond to your request, prepare an order reply, or recommend the right next step.',
         ],
         title: 'How information is used',
       },
@@ -32,7 +32,7 @@ export const legalPages: LegalPage[] = [
   },
   {
     description:
-      'The terms that govern use of the Camp Dream GA website, booking requests, digital resources, and operator tools.',
+      'The terms that govern use of the Camp Dream Store website, order requests, digital resources, and operator tools.',
     sections: [
       {
         body: [
@@ -43,14 +43,14 @@ export const legalPages: LegalPage[] = [
       },
       {
         body: [
-          'Public-facing copy, site design, downloadable resources, and program descriptions remain the property of Camp Dream GA unless otherwise stated. You may not reproduce or republish them as your own commercial material without written permission.',
-          'Testimonials, guide content, and brand assets may not be copied into competing products or training datasets without consent.',
+          'Public-facing copy, site design, and downloadable resources remain the property of Camp Dream Store unless otherwise stated. You may not reproduce or republish them as your own commercial material without written permission.',
+          'Guide content and brand assets may not be copied into competing products or training datasets without consent.',
         ],
         title: 'Content ownership',
       },
       {
         body: [
-          'Program availability, pricing, and schedule details may change. Submitting a form or starting a payment flow does not guarantee placement until confirmed by the appropriate booking or enrollment process.',
+          'Product availability, pricing, and shipping timelines may change. Submitting a form or starting a payment flow does not guarantee fulfillment until confirmed in writing.',
           'We reserve the right to refuse service, pause an engagement, or close access to operator tools where misuse, abuse, or fraudulent behavior is detected.',
         ],
         title: 'Availability and service boundaries',
@@ -61,7 +61,7 @@ export const legalPages: LegalPage[] = [
   },
   {
     description:
-      'How Camp Dream GA uses essential cookies, analytics controls, and advertising preferences on content pages.',
+      'How Camp Dream Store uses essential cookies, analytics controls, and advertising preferences on content pages.',
     sections: [
       {
         body: [
@@ -72,7 +72,7 @@ export const legalPages: LegalPage[] = [
       },
       {
         body: [
-          'When full consent is granted, Camp Dream GA may load analytics providers, tag managers, advertising scripts, and engagement tools that help us understand page performance and resource-page monetization.',
+          'When full consent is granted, Camp Dream Store may load analytics providers, tag managers, advertising scripts, and engagement tools that help us understand page performance and content-page monetization.',
           'These tools are limited to approved templates and are intentionally excluded from checkout, admin, and sensitive pages.',
         ],
         title: 'Optional analytics and advertising tools',
@@ -90,26 +90,26 @@ export const legalPages: LegalPage[] = [
   },
   {
     description:
-      'Important notice that this website is an unofficial demo and not the official Camp Dream website.',
+      'Important notice that this website is a sandbox demo storefront.',
     sections: [
       {
         body: [
-          'This website is an independent demo and test build. It is not the official Camp Dream website.',
-          'The official Camp Dream website is https://campdreamga.org. Nothing on this demo site should be treated as official Camp Dream information.',
+          'This website is an independent demo and test build.',
+          'Nothing on this demo site should be treated as official product availability, pricing, shipping terms, or merchant commitments unless explicitly confirmed.',
         ],
-        title: 'Official website notice',
+        title: 'Sandbox storefront notice',
       },
       {
         body: [
-          'This demo is not affiliated with, endorsed by, sponsored by, or maintained by Camp Dream or campdreamga.org.',
-          'References to Camp Dream on this site are included only for design, development, and testing purposes.',
+          'Media assets are sourced from free-to-use providers where available, and attributions are included when practical.',
+          'If a media source requires additional attribution or notices, those requirements should be honored on the relevant page.',
         ],
-        title: 'No affiliation or endorsement',
+        title: 'Media and attribution',
       },
       {
         body: [
-          'Any forms, calls to action, or example content shown on this site are demo content only and should not be relied upon for real-world Camp Dream decisions.',
-          'If you need official information about Camp Dream, always use https://campdreamga.org or the organization’s verified channels.',
+          'Forms, calls to action, and example content shown on this site are part of a demo storefront experience.',
+          'Direct payment links, if present, are configured via environment variables and should be validated before public release.',
         ],
         title: 'Use of this demo',
       },

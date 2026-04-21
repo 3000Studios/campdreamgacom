@@ -9,28 +9,25 @@ export const ThanksPage = (): JSX.Element => {
   return (
     <>
       <SeoHead
-        description="Thank you for contacting Camp Dream GA."
+        description="Thank you for contacting the Camp Dream Store."
         noIndex
         path="/thanks"
-        title="Thanks for reaching out"
+        title="Thanks"
       />
       <section className="section">
         <div className="container narrow-panel panel">
-          <p className="eyebrow">Demo page</p>
-          <h1>Submissions are disabled on this test site.</h1>
+          <p className="eyebrow">Thanks</p>
+          <h1>We got your message.</h1>
           <p>
-            No inquiry was sent from this demo. If you need official Camp Dream information, use{' '}
-            <a href="https://campdreamga.org" rel="noreferrer" target="_blank">
-              campdreamga.org
-            </a>
-            . Demo source: <strong>{source ?? 'general inquiry'}</strong>.
+            If you used the email draft, your message is now in your mail client ready to send.
+            Source: <strong>{source ?? 'general'}</strong>.
           </p>
           <div className="hero-actions">
-            <Link className="button" to="/pricing">
-              Review pricing
+            <Link className="button" to="/shop">
+              Back to shop
             </Link>
             <Link className="button button-secondary" to="/resources">
-              Keep exploring resources
+              Read the guides
             </Link>
           </div>
         </div>

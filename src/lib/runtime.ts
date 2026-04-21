@@ -1,6 +1,6 @@
 const fallbackRuntimeConfig: PublicRuntimeConfig = {
   adminRouteSlug: 'operator-portal',
-  adsenseClientId: '',
+  adsenseClientId: 'ca-pub-5800977493749262',
   apiBaseUrl: 'http://localhost:8787',
   bookingUrl: '',
   clarityProjectId: '',

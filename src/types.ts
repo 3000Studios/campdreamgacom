@@ -102,3 +102,42 @@ export interface Testimonial {
   quote: string;
   role: string;
 }
+
+export interface ProductMediaAttribution {
+  name: string;
+  url: string;
+}
+
+export interface ProductMedia {
+  alt: string;
+  attribution?: ProductMediaAttribution;
+  kind: 'image' | 'video';
+  posterUrl?: string;
+  url: string;
+}
+
+export interface ProductPrice {
+  amount: number;
+  currency: 'USD';
+  display: string;
+}
+
+export interface Product {
+  badges: string[];
+  category: string;
+  description: string;
+  highlights: string[];
+  media: ProductMedia[];
+  name: string;
+  price: ProductPrice;
+  slug: string;
+  tagline: string;
+}
+
+export interface ProductCollection {
+  description: string;
+  heroMedia: ProductMedia;
+  name: string;
+  productSlugs: string[];
+  slug: string;
+}

@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
+import { WireframeBrand } from '@/components/WireframeBrand';
 import { primaryNavigation } from '@/content/siteContent';
 import { trackEvent } from '@/lib/analytics';
+import { useCart } from '@/state/CartContext';
 
 export const Header = (): JSX.Element => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { totalItems } = useCart();
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -34,8 +37,9 @@ export const Header = (): JSX.Element => {
     <header className={`site-header ${scrolled ? 'site-header-scrolled' : ''}`}>
       <div className="container nav-shell">
         <Link className="brand-mark" to="/">
-          <span className="brand-mark-kicker">Camp Dream Foundation</span>
-          <span className="brand-mark-title">Camp Dream Georgia</span>
+          <WireframeBrand />
+          <span className="brand-mark-kicker">Camp Dream</span>
+          <span className="brand-mark-title">Camp Dream Store</span>
         </Link>
 
         <nav aria-label="Primary" className="desktop-nav">
@@ -54,10 +58,10 @@ export const Header = (): JSX.Element => {
         <div className="nav-actions">
           <Link
             className="button button-ghost desktop-book-cta"
-            onClick={() => trackEvent('cta_click', { placement: 'header', target: '/book' })}
-            to="/book"
+            onClick={() => trackEvent('cta_click', { placement: 'header', target: '/cart' })}
+            to="/cart"
           >
-            Donate
+            Cart{totalItems > 0 ? ` (${totalItems})` : ''}
           </Link>
           <button
             aria-expanded={menuOpen ? 'true' : 'false'}
@@ -94,11 +98,11 @@ export const Header = (): JSX.Element => {
             className="button"
             onClick={() => {
               setMenuOpen(false);
-              trackEvent('cta_click', { placement: 'mobile_nav', target: '/book' });
+              trackEvent('cta_click', { placement: 'mobile_nav', target: '/cart' });
             }}
-            to="/book"
+            to="/cart"
           >
-            Donate to Camp Dream
+            View cart{totalItems > 0 ? ` (${totalItems})` : ''}
           </Link>
         </div>
       </div>

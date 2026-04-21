@@ -4,7 +4,7 @@ import { SeoHead } from '@/components/SeoHead';
 export const OperatorLoginPage = (): JSX.Element => (
   <>
     <SeoHead
-      description="Protected operator sign-in for Camp Dream GA."
+      description="Protected operator sign-in for the Camp Dream Store sandbox storefront."
       noIndex
       path="/operator-sign-in"
       title="Operator sign in"
@@ -17,13 +17,7 @@ export const OperatorLoginPage = (): JSX.Element => (
           This test site does not allow sign-ins, submissions, or client-side actions to be sent.
         </p>
         <div className="lead-form">
-          <DemoNotice>
-            Operator login is disabled on this demo build. Use{' '}
-            <a href="https://campdreamga.org" rel="noreferrer" target="_blank">
-              campdreamga.org
-            </a>{' '}
-            for official Camp Dream information.
-          </DemoNotice>
+          <DemoNotice />
           <button className="button button-disabled" disabled type="button">
             Enter operator workspace
           </button>

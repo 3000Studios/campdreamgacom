@@ -2,19 +2,19 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { DemoNotice } from '@/components/DemoNotice';
 import { LeadCaptureForm } from '@/components/LeadCaptureForm';
 import { SeoHead } from '@/components/SeoHead';
-import { contactDetails } from '@/content/siteContent';
+import { runtimeConfig } from '@/lib/runtime';
 import { buildBreadcrumbSchema } from '@/lib/schema';
 
 export const ContactPage = (): JSX.Element => (
   <>
     <SeoHead
-      description="Contact Camp Dream for Summer Camp, volunteer, event, and donor inquiries."
+      description="Contact the Camp Dream Store sandbox storefront for questions, order requests, and partnerships."
       path="/contact"
       structuredData={buildBreadcrumbSchema([
         { label: 'Home', path: '/' },
         { label: 'Contact', path: '/contact' },
       ])}
-      title="Contact Camp Dream"
+      title="Contact"
     />
 
     <section className="section">
@@ -27,34 +27,28 @@ export const ContactPage = (): JSX.Element => (
             ]}
           />
           <p className="eyebrow">Contact</p>
-          <h1>Contact Camp Dream for camp, volunteer, and donor questions.</h1>
-          <p className="lede">{contactDetails.supportNote}</p>
+          <h1>Questions, order requests, or partnerships?</h1>
+          <p className="lede">
+            Send a message below. If the configured API isn’t available, we’ll open a pre-filled
+            email draft so your request still goes through.
+          </p>
           <div className="panel">
-            <DemoNotice>
-              Contact actions are disabled on this demo site. Use{' '}
-              <a href="https://campdreamga.org" rel="noreferrer" target="_blank">
-                campdreamga.org
-              </a>{' '}
-              for official Camp Dream contact information and live inquiry options.
-            </DemoNotice>
             <p>
-              <strong>Official site:</strong>{' '}
-              <a href="https://campdreamga.org" rel="noreferrer" target="_blank">
-                campdreamga.org
-              </a>
+              <strong>Email:</strong> {runtimeConfig.contactEmail}
             </p>
             <p>
-              <strong>Phone:</strong> Demo contact actions are disabled
+              <strong>Response time:</strong> Typically 1–2 business days (sandbox demo)
             </p>
             <p>
-              <strong>Availability:</strong> {contactDetails.availability}
+              <strong>Best for:</strong> order requests, product questions, and partnerships
             </p>
             <p>
-              <strong>Service area:</strong> {contactDetails.serviceArea}
+              <strong>Notes:</strong> Include product names and quantities for faster replies
             </p>
+            <DemoNotice />
           </div>
         </div>
-        <LeadCaptureForm source="contact-page" title="Send your question" />
+        <LeadCaptureForm source="contact-page" title="Send your message" />
       </div>
     </section>
   </>
