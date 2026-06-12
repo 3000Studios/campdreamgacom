@@ -82,7 +82,7 @@
     "rollup-plugin-visualizer": "^5.14.0",
     "supertest": "^7.1.1",
     "tsup": "^8.4.0",
-    "tsx": "^4.19.4",
+    "tsx": "^4.22.4",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.4.2",
