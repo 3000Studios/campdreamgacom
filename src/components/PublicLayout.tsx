@@ -24,10 +24,8 @@ export const PublicLayout = (): JSX.Element => {
   }, [consent.analytics]);
 
   useEffect(() => {
-    if (consent.marketing) {
-      loadAdsense();
-    }
-  }, [consent.marketing]);
+    loadAdsense();
+  }, []);
 
   useEffect(() => {
     trackEvent('page_view', { page_path: location.pathname });
