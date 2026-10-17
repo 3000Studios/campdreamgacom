@@ -105,7 +105,7 @@ export const bootAnalytics = (): void => {
 };
 
 export const loadAdsense = (): void => {
-  if (!runtimeConfig.enableAds || !runtimeConfig.adsenseClient) {
+  if (!runtimeConfig.enableAds) {
     return;
   }
 
