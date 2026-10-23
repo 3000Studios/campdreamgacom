@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 
+import { BookingCta } from '@/components/BookingCta';
 import { SeoHead } from '@/components/SeoHead';
 import { collections, products } from '@/content/products';
 import { resourceArticles } from '@/content/resources';
+import { homepageFaqs, pricingPlans, programs, siteStats, testimonials } from '@/content/siteContent';
 import { trackEvent } from '@/lib/analytics';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 
@@ -10,54 +12,63 @@ export const HomePage = (): JSX.Element => {
   const featuredProducts = products.slice(0, 6);
   const featuredResources = resourceArticles.slice(0, 3);
   const heroCollection = collections[0];
+  const summerCampPlan = pricingPlans.find((plan) => plan.id === 'summer-camp');
 
   return (
     <>
       <SeoHead
-        description="A bright, joyful storefront with camp-inspired finds, cozy vibes, and original guides—designed for AdSense review readiness."
+        description="Camp Dream is a joyful overnight summer camp in Hampton, Georgia for children and young adults with physical and developmental disabilities — volunteer-run since 1996, with 1:1 counselor support, full medical staff, and scholarships so no camper is turned away."
         path="/"
         structuredData={[organizationSchema, websiteSchema]}
-        title="Camp Dream Store"
+        title="Camp Dream — Overnight Summer Camp in Hampton, Georgia"
       />
 
       <section className="hero-section">
         <div className="container hero-grid">
           <div>
-            <p className="eyebrow">Storefront</p>
-            <h1 className="display-title">Joyful gear for bright days outdoors.</h1>
+            <p className="eyebrow">Camp Dream · Hampton, Georgia</p>
+            <h1 className="display-title">A joyful overnight summer camp built around every camper.</h1>
             <p className="lede">
-              Shop cozy favorites, tiny gifts, and daytrip essentials. Then dive into our guides
-              for planning, packing, and keeping the vibe effortless.
+              Camp Dream serves children and young adults with moderate to severe physical and
+              developmental disabilities in a barrier-free camp setting at the Calvin Center,
+              with one-to-one counselor support and dedicated medical staff in every session.
             </p>
             <div className="hero-actions">
+              {summerCampPlan ? (
+                <a
+                  className="button"
+                  href={summerCampPlan.ctaHref}
+                  onClick={() =>
+                    trackEvent('cta_click', { placement: 'hero', target: summerCampPlan.ctaHref })
+                  }
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Book Summer Camp
+                </a>
+              ) : null}
               <Link
-                className="button"
+                className="button button-secondary"
                 onClick={() => trackEvent('cta_click', { placement: 'hero', target: '/shop' })}
                 to="/shop"
               >
-                Shop now
+                Shop Camp Dream gear
               </Link>
               <Link
                 className="button button-secondary"
-                onClick={() => trackEvent('cta_click', { placement: 'hero', target: '/collections' })}
-                to="/collections"
+                onClick={() => trackEvent('cta_click', { placement: 'hero', target: '/resources' })}
+                to="/resources"
               >
-                Explore collections
+                Read family guides
               </Link>
             </div>
             <div className="stats-grid">
-              <div className="stat-card">
-                <strong>{products.length}+</strong>
-                <span>joyful products</span>
-              </div>
-              <div className="stat-card">
-                <strong>{collections.length}</strong>
-                <span>curated collections</span>
-              </div>
-              <div className="stat-card">
-                <strong>{resourceArticles.length}</strong>
-                <span>original guides</span>
-              </div>
+              {siteStats.map((stat) => (
+                <div className="stat-card" key={stat.label}>
+                  <strong>{stat.value}</strong>
+                  <span>{stat.label}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -73,9 +84,9 @@ export const HomePage = (): JSX.Element => {
               <source src="/media/252131-web.mp4" type="video/mp4" />
             </video>
             <div className="hero-overlay-card panel">
-              <p className="eyebrow">AdSense-ready content</p>
-              <h2>Built to look good and read well.</h2>
-              <p>Original guides plus a storefront structure designed for clean navigation.</p>
+              <p className="eyebrow">Plan with confidence</p>
+              <h2>Start with the guides families ask for most.</h2>
+              <p>Original guides for choosing, packing, budgeting, and preparing for camp.</p>
               <Link className="text-link" to="/resources">
                 Browse guides
               </Link>
@@ -84,10 +95,72 @@ export const HomePage = (): JSX.Element => {
         </div>
 
         <div className="container trust-strip">
-          <span>Bright visuals, responsive layout, joyful motion.</span>
-          <span>Clear navigation + legal pages for AdSense review.</span>
-          <span>Original guide content designed for readability.</span>
-          <span>Storefront flow with cart + checkout request.</span>
+          <span>Barrier-free camp setting in Hampton, Georgia.</span>
+          <span>One-to-one counselor support throughout each session.</span>
+          <span>Dedicated medical staff available in every session.</span>
+          <span>Scholarships so no camper is turned away for financial reasons.</span>
+        </div>
+      </section>
+
+      <BookingCta />
+
+      <section className="section">
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow">Ways to take part</p>
+            <h2>Camp, volunteer, or help a camper get there.</h2>
+            <p>
+              Camp Dream is run by the Camp Dream Foundation, a 501(c)(3) nonprofit organization
+              that has been serving campers since 1996.
+            </p>
+          </div>
+          <div className="card-grid">
+            {programs.map((program) => (
+              <article className="panel" key={program.slug}>
+                <p className="eyebrow">{program.priceLabel}</p>
+                <h3>{program.title}</h3>
+                <p>{program.summary}</p>
+                <p>
+                  <strong>Who it serves:</strong> {program.audience}
+                </p>
+                <p>
+                  <strong>Format:</strong> {program.duration}
+                </p>
+                <ul className="check-list">
+                  {program.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container split-layout">
+          <div>
+            <p className="eyebrow">What people say</p>
+            <h2>Families and counselors remember the feeling.</h2>
+            {testimonials.map((testimonial) => (
+              <blockquote className="panel" key={testimonial.name}>
+                <p>“{testimonial.quote}”</p>
+                <p className="muted">
+                  — {testimonial.name}, {testimonial.role}, {testimonial.location}
+                </p>
+              </blockquote>
+            ))}
+          </div>
+          <div>
+            <p className="eyebrow">Frequently asked questions</p>
+            <h2>Before you apply</h2>
+            {homepageFaqs.map((faq) => (
+              <div key={faq.question}>
+                <h3>{faq.question}</h3>
+                <p>{faq.answer}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -6,7 +6,7 @@ import { defineConfig, loadEnv } from 'vite';
 
 const toBoolean = (value: string | undefined): boolean => value === 'true';
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, isSsrBuild }) => {
   const env = loadEnv(mode, process.cwd(), '');
   const analyze = toBoolean(env.ANALYZE);
 
@@ -31,6 +31,7 @@ export default defineConfig(({ mode }) => {
   };
 
   return {
+    publicDir: isSsrBuild ? false : undefined,
     plugins: [
       react(),
       analyze &&
@@ -45,6 +46,11 @@ export default defineConfig(({ mode }) => {
       alias: {
         '@': path.resolve(__dirname, 'src'),
       },
+    },
+    ssr: {
+      // react-helmet-async's CommonJS entry does not expose its named exports
+      // to Node's ESM loader, so the prerender bundle must inline it.
+      noExternal: isSsrBuild ? ['react-helmet-async'] : undefined,
     },
     define: {
       __PUBLIC_CONFIG__: JSON.stringify(publicConfig),
@@ -66,11 +72,13 @@ export default defineConfig(({ mode }) => {
       sourcemap: true,
       chunkSizeWarningLimit: 850,
       rollupOptions: {
-        output: {
-          manualChunks: {
-            react: ['react', 'react-dom', 'react-router-dom'],
-          },
-        },
+        output: isSsrBuild
+          ? undefined
+          : {
+              manualChunks: {
+                react: ['react', 'react-dom', 'react-router-dom'],
+              },
+            },
       },
     },
   };

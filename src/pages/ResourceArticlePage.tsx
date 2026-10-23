@@ -1,6 +1,7 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
 
 import { AdSlot } from '@/components/AdSlot';
+import { BookingCta } from '@/components/BookingCta';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { FaqAccordion } from '@/components/FaqAccordion';
 import { LeadCaptureForm } from '@/components/LeadCaptureForm';
@@ -136,6 +137,7 @@ export const ResourceArticlePage = (): JSX.Element => {
           </div>
 
           <div className="article-aside">
+            <BookingCta variant="panel" />
             <StickyCtaRail />
             {article.adEligible ? <AdSlot slotId="resource-sidebar-1" /> : null}
           </div>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+import { BookingCta } from '@/components/BookingCta';
 import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { SeoHead } from '@/components/SeoHead';
 import { resourceArticles } from '@/content/resources';
@@ -34,6 +35,8 @@ export const ResourcesPage = (): JSX.Element => (
         </p>
       </div>
     </section>
+
+    <BookingCta />
 
     <section className="section">
       <div className="container">
